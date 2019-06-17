@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchBar: UISearchBar {
+final class SearchBar: UISearchBar {
     
     init(delegate: UISearchBarDelegate) {
         super.init(frame: CGRect.zero)

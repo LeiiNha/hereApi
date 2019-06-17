@@ -9,7 +9,7 @@
 import UIKit
 import NMAKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     var searchBar: SearchBar?
     var mapView: NMAMapView?

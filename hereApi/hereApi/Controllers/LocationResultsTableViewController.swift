@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import NMAKit
 
-class LocationResultsTableViewController: UITableViewController {
+final class LocationResultsTableViewController: UITableViewController {
 
     public var locationManager: CLLocationManager?
     var locationResults: [NMALink]?

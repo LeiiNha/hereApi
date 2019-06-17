@@ -9,7 +9,7 @@
 import UIKit
 import NMAKit
 
-class LocationDetailViewController: UIViewController {
+final class LocationDetailViewController: UIViewController {
 
    
     var mapView: NMAMapView?

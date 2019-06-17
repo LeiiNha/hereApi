@@ -18,7 +18,7 @@ protocol LocationResultDelegate {
     func numberOfSections(in tableView: UITableView) -> Int
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
 }
-class LocationResultViewModel {
+final class LocationResultViewModel {
     var locationResults: [NMALink]?
     var searchBar: SearchBar?
     var lastResultPage: NMADiscoveryPage?

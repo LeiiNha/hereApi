@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocationTableViewCell: UITableViewCell {
+final class LocationTableViewCell: UITableViewCell {
 
     var name: String? {
         didSet {

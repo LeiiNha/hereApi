@@ -18,7 +18,7 @@ protocol MainViewModelDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 }
 
-class MainViewModel {
+final class MainViewModel {
     
     private(set) var mapView: NMAMapView?
     private(set) var favoritesTableView: UITableView?

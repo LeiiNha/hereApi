@@ -12,7 +12,7 @@ import NMAKit
 protocol LocationDetailDelegate {
     func handleBtnPress(_ sender: UIButton)
 }
-class LocationDetailViewModel {
+final class LocationDetailViewModel {
     let url: String
     let networkManager: NetworkManager
     let location: Location
