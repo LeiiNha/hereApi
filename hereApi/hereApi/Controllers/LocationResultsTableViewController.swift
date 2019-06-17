@@ -46,7 +46,6 @@ extension LocationResultsTableViewController: UISearchBarDelegate {
                 return
             }
             self.locationResults = resultPage.discoveryResults
-            print("NUMERO DE RESULTADOS: ", resultPage.discoveryResults.count.description)
             self.lastResultPage = resultPage
             self.tableView.reloadData()
         })
@@ -113,7 +112,6 @@ extension LocationResultsTableViewController {
 
         return cell
     }
-    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let url = self.locationResults?[indexPath.row].url else { return }
@@ -121,19 +119,5 @@ extension LocationResultsTableViewController {
             let detailPage = LocationDetailViewController(url: url, location: location, currentLocation: self.locationManager?.location)
             DispatchQueue.main.async { self.navigationController?.pushViewController(detailPage, animated: true) }
         })
-
-    }
-}
-
-
-extension LocationResultsTableViewController: NMAResultListener {
-    func requestDidComplete(_ request: NMARequest, data: Any?, error: Error?) {
-        
-        print(request)
-        print("terminou request")
-    }
-    
-    override func beginRequest(with context: NSExtensionContext) {
-        print(context)
     }
 }

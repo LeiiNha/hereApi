@@ -77,7 +77,6 @@ private extension ViewController {
         restaurantView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         restaurantView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
     }
-    
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -88,5 +87,3 @@ extension ViewController: UISearchBarDelegate {
         self.navigationController?.pushViewController(results, animated: false)
     }
 }
-
-

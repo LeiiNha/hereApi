@@ -26,17 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let kHelloMapAppCode = "1AxMuqK22Wo5DjvjjrWYSw"
         
         NMAApplicationContext.set(appId: kHelloMapAppID, appCode: kHelloMapAppCode)
-        
-        
-        // For use in foreground
+
         self.locationManager.requestWhenInUseAuthorization()
         return true
     }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
-
