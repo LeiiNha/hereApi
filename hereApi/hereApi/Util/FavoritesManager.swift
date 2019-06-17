@@ -55,4 +55,8 @@ struct FavoritesManager {
         }
         return false
     }
+
+    static func clearFavorites() {
+        UserDefaults.standard.removeObject(forKey: Constants.favoritesKey)
+    }
 }
