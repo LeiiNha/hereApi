@@ -6,7 +6,7 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import NMAKit
 
 protocol LocationResultDelegate {
@@ -19,8 +19,8 @@ protocol LocationResultDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
 }
 final class LocationResultViewModel {
-    var locationResults: [NMALink]?
-    var lastResultPage: NMADiscoveryPage?
+    private(set) var locationResults: [NMALink]?
+    private(set) var lastResultPage: NMADiscoveryPage?
     let networkManager: NetworkManager
     let locationManager: LocationManagerProtocol
     let favoritesManager: FavoritesManagerProtocol

@@ -12,7 +12,7 @@ import NMAKit
 final class LocationDetailViewController: UIViewController {
 
    
-    var mapView: NMAMapView?
+    private(set) var mapView: NMAMapView?
     let viewModel: LocationDetailViewModel
 
     private(set) var favoriteLocations: [Location]?

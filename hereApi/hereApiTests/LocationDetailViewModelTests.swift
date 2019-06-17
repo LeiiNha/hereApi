@@ -82,10 +82,6 @@ class LocationDetailViewModelTests: XCTestCase {
         let viewModel = LocationDetailViewModel(url: "teste", location: Location(position: [233.0: 532.0], address: Address(text: "loc2", street: "loc3", postalCode: "loc2", district: "loc2", city: "loc2", county: "loc2", country: "loc2", countryCode: "loc2")), favoritesManager: favoritesManagerMock(), locationManager: locationManagerMock())
         XCTAssertEqual(viewModel.getAddress(), "Street: loc3\nPostal Code: loc2\nLatitude: 233.0, Longitude: 532.0\n")
     }
-    
-    func test() {
-        let viewModel = LocationDetailViewModel(url: "teste", location: Location(position: [233.0: 532.0], address: Address(text: "loc2", street: "loc3", postalCode: "loc2", district: "loc2", city: "loc2", county: "loc2", country: "loc2", countryCode: "loc2")), favoritesManager: favoritesManagerMock(), locationManager: locationManagerMock())
-    }
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

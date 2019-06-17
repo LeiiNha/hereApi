@@ -6,7 +6,7 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import NMAKit
 
 protocol LocationDetailDelegate {

@@ -11,12 +11,12 @@ import NMAKit
 
 final class ViewController: UIViewController {
     
-    var searchBar: SearchBar?
-    var mapView: NMAMapView?
-    var resultsTableView: UITableView?
-    var mainViewModel: MainViewModel
+    private(set) var searchBar: SearchBar?
+    private(set) var mapView: NMAMapView?
+    private(set) var resultsTableView: UITableView?
+    private(set) var mainViewModel: MainViewModel
     
-    enum Constants {
+    private enum Constants {
         static let mapZoomDefault: Float = 13.2
     }
     
@@ -33,6 +33,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         configureViews()
+        self.view.backgroundColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {

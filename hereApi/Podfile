@@ -6,7 +6,7 @@ target 'hereApi' do
   use_frameworks!
 
   # Pods for hereApi
-  pod 'HEREMapsStarter', '>= 3.10'
+  pod 'HEREMapsStarter'
 
   target 'hereApiTests' do
     inherit! :search_paths

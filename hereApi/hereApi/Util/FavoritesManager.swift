@@ -18,7 +18,7 @@ protocol FavoritesManagerProtocol {
 }
 
 struct FavoritesManager: FavoritesManagerProtocol {
-    enum Constants {
+    private enum Constants {
         static let maximumFavorites = 10
         static let favoritesKey = "SavedFavorites"
     }

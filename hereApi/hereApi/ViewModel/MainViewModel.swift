@@ -6,7 +6,7 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import NMAKit
 
 protocol MainViewModelDelegate {
@@ -28,7 +28,7 @@ final class MainViewModel {
     private let locationManager = LocationManager()
     private let favoritesManager = FavoritesManager()
     
-    enum Constants {
+    private enum Constants {
         static let mapZoomDefault: Float = 13.2
     }
     init() {

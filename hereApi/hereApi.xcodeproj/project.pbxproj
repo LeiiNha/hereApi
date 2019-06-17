@@ -409,10 +409,12 @@
 					};
 					CC6530A822B4D33400D20DA1 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CC65309422B4D33000D20DA1;
 					};
 					CC6530B322B4D33400D20DA1 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CC65309422B4D33000D20DA1;
 					};
 				};
@@ -765,7 +767,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leiinha.hereExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -784,7 +786,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leiinha.hereExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -805,7 +807,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leiinha.hereApiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hereApi.app/hereApi";
 			};
@@ -827,7 +829,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leiinha.hereApiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hereApi.app/hereApi";
 			};
@@ -848,7 +850,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leiinha.hereApiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = hereApi;
 			};
@@ -869,7 +871,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leiinha.hereApiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = hereApi;
 			};

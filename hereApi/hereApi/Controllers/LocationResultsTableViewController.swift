@@ -13,12 +13,12 @@ import NMAKit
 final class LocationResultsTableViewController: UITableViewController {
 
     public var locationManager: CLLocationManager?
-    var locationResults: [NMALink]?
-    var searchBar: SearchBar?
-    var lastResultPage: NMADiscoveryPage?
+    private(set) var locationResults: [NMALink]?
+    private(set) var searchBar: SearchBar?
+    private(set) var lastResultPage: NMADiscoveryPage?
     let viewModel: LocationResultViewModel
     
-    enum Constants {
+    private enum Constants {
         static let cellHeight: CGFloat = 100.0
     }
     
