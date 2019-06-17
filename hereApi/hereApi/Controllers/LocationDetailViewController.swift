@@ -13,11 +13,14 @@ import CoreLocation
 class LocationDetailViewController: UIViewController {
 
     let url: String
-    let networkManager = NetworkManager()
+    let networkManager: NetworkManager
     let location: Location
+
     private(set) var favoriteLocations: [Location]?
+
     public init(url: String, location: Location) {
         self.url = url
+        self.networkManager = NetworkManager()
         self.location = location
         super.init(nibName: nil, bundle: nil)
 
@@ -33,6 +36,9 @@ class LocationDetailViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.primary
     }
+}
+
+private extension LocationDetailViewController {
 
     func configureSubviews() {
         guard let coords = self.location.position.first else { return }
@@ -55,40 +61,48 @@ class LocationDetailViewController: UIViewController {
     }
 
     func addLabel(address: Address, latitude: Double, longitude: Double) {
-        let lbl = UILabel(frame: CGRect.zero)
-        lbl.textAlignment = .left
-        lbl.numberOfLines = 0
-        lbl.font.withSize(FontSize.S)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(lbl)
-        lbl.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -200.0).isActive = true
-        lbl.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        lbl.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        let detailsText: UILabel = UILabel(frame: CGRect.zero)
+        detailsText.textAlignment = .left
+        detailsText.numberOfLines = 0
+        detailsText.font.withSize(FontSize.S)
+        detailsText.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(detailsText)
+        detailsText.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -200.0).isActive = true
+        detailsText.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        detailsText.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
 
-        lbl.text = String(format: "Street: %@\nPostal Code: %@\nLatitude: %@, Longitude: %@\n", address.street.orDefault(""), address.postalCode.orDefault(""), latitude.description, longitude.description)
+        detailsText.text = String(format: "Street: %@\nPostal Code: %@\nLatitude: %@, Longitude: %@\n", address.street.orDefault(""), address.postalCode.orDefault(""), latitude.description, longitude.description)
         if let location = CLLocationManager().location {
-            lbl.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(lat1: location.coordinate.latitude, long1: location.coordinate.longitude, lat2: latitude, long2: longitude)))
+            detailsText.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(lat1: location.coordinate.latitude, long1: location.coordinate.longitude, lat2: latitude, long2: longitude)))
         }
     }
 
     func addLikeButton() {
         let likeBtn = UIButton(type: .custom)
-        if FavoritesManager.checkIsFavorite(self.location) {
-            likeBtn.setImage(Images.likeFilled, for: .normal)
-        } else {
-            likeBtn.setImage(Images.like, for: .normal)
-        }
+        likeBtn.setImage(self.getButtonImage(), for: .normal)
         likeBtn.addTarget(self, action: #selector(handleFavorite(_:)), for: .touchUpInside)
         self.view.addSubview(likeBtn)
         likeBtn.translatesAutoresizingMaskIntoConstraints = false
         likeBtn.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
         likeBtn.widthAnchor.constraint(equalToConstant: 100.0).isActive = true
         likeBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        likeBtn.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        likeBtn.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -Spacing.XL).isActive = true
+    }
+
+    func getButtonImage() -> UIImage? {
+        if FavoritesManager.checkIsFavorite(self.location) {
+            return Images.likeFilled
+        }
+        return Images.like
     }
 
     @objc func handleFavorite(_ sender: UIButton) {
-        print("oi")
+        if sender.currentImage == Images.like {
+            FavoritesManager.saveFavorite(location: self.location)
+        } else {
+            FavoritesManager.removeFavorite(self.location)
+        }
+        sender.setImage(self.getButtonImage(), for: .normal)
     }
 
     func calculateDistance(lat1: Double, long1: Double, lat2: Double, long2: Double) -> String {
@@ -99,9 +113,4 @@ class LocationDetailViewController: UIViewController {
         let distanceInMeters = coordinateA.distance(from: coordinateB)
         return distanceInMeters.description
     }
-
-
-    
-
-
 }

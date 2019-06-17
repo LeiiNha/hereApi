@@ -170,19 +170,18 @@
 		CC65309722B4D33000D20DA1 /* hereApi */ = {
 			isa = PBXGroup;
 			children = (
-				EDA8F01022B78B4900710DA2 /* Extensions */,
+				EDA8F01822B7CDFB00710DA2 /* Util */,
 				CC6530DB22B5B3E500D20DA1 /* Network */,
+				EDA8F01022B78B4900710DA2 /* Extensions */,
+				CC6530E022B5B84900D20DA1 /* Models */,
 				CC6530C822B4D48500D20DA1 /* Views */,
 				CC6530C722B4D47E00D20DA1 /* Controllers */,
-				CC6530C622B4D47900D20DA1 /* Models */,
 				CC65309822B4D33000D20DA1 /* AppDelegate.swift */,
 				CC65309A22B4D33000D20DA1 /* ViewController.swift */,
 				CC65309C22B4D33100D20DA1 /* Main.storyboard */,
 				CC65309F22B4D33300D20DA1 /* Assets.xcassets */,
 				CC6530A122B4D33300D20DA1 /* LaunchScreen.storyboard */,
 				CC6530A422B4D33300D20DA1 /* Info.plist */,
-				CC6530CB22B4D9FA00D20DA1 /* ThemeGuide.swift */,
-				CC6530CF22B58A4C00D20DA1 /* Int+Even.swift */,
 			);
 			path = hereApi;
 			sourceTree = "<group>";
@@ -203,13 +202,6 @@
 				CC6530BA22B4D33400D20DA1 /* Info.plist */,
 			);
 			path = hereApiUITests;
-			sourceTree = "<group>";
-		};
-		CC6530C622B4D47900D20DA1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		CC6530C722B4D47E00D20DA1 /* Controllers */ = {
@@ -234,7 +226,6 @@
 		CC6530DB22B5B3E500D20DA1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CC6530E022B5B84900D20DA1 /* Model */,
 				CC6530DF22B5B83E00D20DA1 /* Encoding */,
 				CC6530DE22B5B83800D20DA1 /* Service */,
 				CC6530DD22B5B82C00D20DA1 /* Manager */,
@@ -282,15 +273,14 @@
 			path = Encoding;
 			sourceTree = "<group>";
 		};
-		CC6530E022B5B84900D20DA1 /* Model */ = {
+		CC6530E022B5B84900D20DA1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				CC6530F722B6297800D20DA1 /* Location.swift */,
 				CC6530F922B629D800D20DA1 /* Coordinates.swift */,
 				CC6530FB22B62B1B00D20DA1 /* Address.swift */,
-				EDA8F01622B7C45B00710DA2 /* FavoritesManager.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E8686312498FC733775A98E6 /* Pods */ = {
@@ -310,8 +300,18 @@
 			isa = PBXGroup;
 			children = (
 				EDA8F01122B78B5800710DA2 /* Optional+Default.swift */,
+				CC6530CF22B58A4C00D20DA1 /* Int+Even.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EDA8F01822B7CDFB00710DA2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CC6530CB22B4D9FA00D20DA1 /* ThemeGuide.swift */,
+				EDA8F01622B7C45B00710DA2 /* FavoritesManager.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

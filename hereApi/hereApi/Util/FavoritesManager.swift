@@ -43,6 +43,15 @@ struct FavoritesManager {
         }
     }
 
+    static func removeFavorite(_ location: Location) {
+        if var loadedFavorites = self.loadFavorites() {
+            loadedFavorites.removeAll(where: { $0 == location })
+            if let encoded = try? JSONEncoder().encode(loadedFavorites) {
+                UserDefaults.standard.set(encoded, forKey: Constants.favoritesKey)
+            }
+        }
+    }
+
     static func checkIsFavorite(_ location: Location) -> Bool {
         if let favorites = self.loadFavorites(), favorites.contains(where: {$0 == location}) {
             return true

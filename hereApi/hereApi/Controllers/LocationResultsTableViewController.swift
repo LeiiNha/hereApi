@@ -15,6 +15,7 @@ class LocationResultsTableViewController: UITableViewController {
     public var locationManager: CLLocationManager?
     var locationResults: [NMALink]?
     var searchBar: SearchBar?
+    var lastResultPage: NMADiscoveryPage?
     
     enum Constants {
         static let cellHeight: CGFloat = 100.0
@@ -23,9 +24,11 @@ class LocationResultsTableViewController: UITableViewController {
     override init(style: UITableView.Style) {
         super.init(style: style)
     }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchBar()
@@ -43,6 +46,7 @@ extension LocationResultsTableViewController: UISearchBarDelegate {
                 return
             }
             self.locationResults = resultPage.discoveryResults
+            self.lastResultPage = resultPage
             self.tableView.reloadData()
         })
     }
@@ -85,6 +89,19 @@ extension LocationResultsTableViewController {
     // MARK: - Table view delegate
 extension LocationResultsTableViewController {
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let count = self.locationResults?.count, indexPath.row == count - 1 {
+            lastResultPage?.nextPageRequest?.start(block: { request, data, error in
+                guard error == nil, data is NMADiscoveryPage, let resultPage = data as? NMADiscoveryPage else {
+                    print ("invalid type returned \(String(describing: data))")
+                    return
+                }
+                self.locationResults?.append(contentsOf: resultPage.discoveryResults)
+                self.lastResultPage = resultPage
+                self.tableView.reloadData()
+            })
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
