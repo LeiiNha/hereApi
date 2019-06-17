@@ -12,7 +12,6 @@
 		313BAB63D54C7430C60B7BB2 /* Pods_hereApiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DC69954242D23AC794CBA0 /* Pods_hereApiUITests.framework */; };
 		CC65309922B4D33000D20DA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65309822B4D33000D20DA1 /* AppDelegate.swift */; };
 		CC65309B22B4D33000D20DA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65309A22B4D33000D20DA1 /* ViewController.swift */; };
-		CC65309E22B4D33100D20DA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC65309C22B4D33100D20DA1 /* Main.storyboard */; };
 		CC6530A022B4D33300D20DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC65309F22B4D33300D20DA1 /* Assets.xcassets */; };
 		CC6530A322B4D33300D20DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6530A122B4D33300D20DA1 /* LaunchScreen.storyboard */; };
 		CC6530AE22B4D33400D20DA1 /* hereApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530AD22B4D33400D20DA1 /* hereApiTests.swift */; };
@@ -36,6 +35,10 @@
 		CC6530F822B6297800D20DA1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530F722B6297800D20DA1 /* Location.swift */; };
 		CC6530FA22B629D800D20DA1 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530F922B629D800D20DA1 /* Coordinates.swift */; };
 		CC6530FC22B62B1B00D20DA1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530FB22B62B1B00D20DA1 /* Address.swift */; };
+		CC6530FF22B80DCE00D20DA1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530FE22B80DCE00D20DA1 /* MainViewModel.swift */; };
+		CC65310122B8180F00D20DA1 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65310022B8180F00D20DA1 /* LocationDetailViewModel.swift */; };
+		CC65310322B8181C00D20DA1 /* LocationResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65310222B8181C00D20DA1 /* LocationResultViewModel.swift */; };
+		CC65310522B821A300D20DA1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65310422B821A300D20DA1 /* LocationManager.swift */; };
 		EDA8F01222B78B5800710DA2 /* Optional+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8F01122B78B5800710DA2 /* Optional+Default.swift */; };
 		EDA8F01722B7C45B00710DA2 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8F01622B7C45B00710DA2 /* FavoritesManager.swift */; };
 		EDA8F01A22B7EB6000710DA2 /* FavoritesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8F01922B7EB6000710DA2 /* FavoritesManagerTests.swift */; };
@@ -69,7 +72,6 @@
 		CC65309522B4D33000D20DA1 /* hereApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hereApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC65309822B4D33000D20DA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC65309A22B4D33000D20DA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CC65309D22B4D33100D20DA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC65309F22B4D33300D20DA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC6530A222B4D33300D20DA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC6530A422B4D33300D20DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +100,10 @@
 		CC6530F722B6297800D20DA1 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		CC6530F922B629D800D20DA1 /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		CC6530FB22B62B1B00D20DA1 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		CC6530FE22B80DCE00D20DA1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		CC65310022B8180F00D20DA1 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		CC65310222B8181C00D20DA1 /* LocationResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResultViewModel.swift; sourceTree = "<group>"; };
+		CC65310422B821A300D20DA1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		DCB0B5524C55255367291F7E /* Pods-hereApiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApiUITests.debug.xcconfig"; path = "Target Support Files/Pods-hereApiUITests/Pods-hereApiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E25F0C1F27BB5530F8A8B8D0 /* Pods-hereApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApiTests.debug.xcconfig"; path = "Target Support Files/Pods-hereApiTests/Pods-hereApiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBE2914BF816B950429D48D8 /* Pods-hereApiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApiUITests.release.xcconfig"; path = "Target Support Files/Pods-hereApiUITests/Pods-hereApiUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 		CC65309722B4D33000D20DA1 /* hereApi */ = {
 			isa = PBXGroup;
 			children = (
+				CC6530FD22B80DBE00D20DA1 /* ViewModel */,
 				EDA8F01822B7CDFB00710DA2 /* Util */,
 				CC6530DB22B5B3E500D20DA1 /* Network */,
 				EDA8F01022B78B4900710DA2 /* Extensions */,
@@ -178,7 +185,6 @@
 				CC6530C722B4D47E00D20DA1 /* Controllers */,
 				CC65309822B4D33000D20DA1 /* AppDelegate.swift */,
 				CC65309A22B4D33000D20DA1 /* ViewController.swift */,
-				CC65309C22B4D33100D20DA1 /* Main.storyboard */,
 				CC65309F22B4D33300D20DA1 /* Assets.xcassets */,
 				CC6530A122B4D33300D20DA1 /* LaunchScreen.storyboard */,
 				CC6530A422B4D33300D20DA1 /* Info.plist */,
@@ -284,6 +290,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		CC6530FD22B80DBE00D20DA1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC6530FE22B80DCE00D20DA1 /* MainViewModel.swift */,
+				CC65310022B8180F00D20DA1 /* LocationDetailViewModel.swift */,
+				CC65310222B8181C00D20DA1 /* LocationResultViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E8686312498FC733775A98E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +326,7 @@
 			children = (
 				CC6530CB22B4D9FA00D20DA1 /* ThemeGuide.swift */,
 				EDA8F01622B7C45B00710DA2 /* FavoritesManager.swift */,
+				CC65310422B821A300D20DA1 /* LocationManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -424,7 +441,6 @@
 			files = (
 				CC6530A322B4D33300D20DA1 /* LaunchScreen.storyboard in Resources */,
 				CC6530A022B4D33300D20DA1 /* Assets.xcassets in Resources */,
-				CC65309E22B4D33100D20DA1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,7 +578,11 @@
 				CC6530E622B5B8DB00D20DA1 /* HTTPMethod.swift in Sources */,
 				CC65309922B4D33000D20DA1 /* AppDelegate.swift in Sources */,
 				CC6530CA22B4D69E00D20DA1 /* SearchBar+Custom.swift in Sources */,
+				CC65310322B8181C00D20DA1 /* LocationResultViewModel.swift in Sources */,
 				CC6530F222B5B95C00D20DA1 /* JSONParameterEncoder.swift in Sources */,
+				CC6530FF22B80DCE00D20DA1 /* MainViewModel.swift in Sources */,
+				CC65310122B8180F00D20DA1 /* LocationDetailViewModel.swift in Sources */,
+				CC65310522B821A300D20DA1 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,14 +620,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CC65309C22B4D33100D20DA1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CC65309D22B4D33100D20DA1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CC6530A122B4D33300D20DA1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

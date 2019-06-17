@@ -28,6 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NMAApplicationContext.set(appId: kHelloMapAppID, appCode: kHelloMapAppCode)
 
         self.locationManager.requestWhenInUseAuthorization()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let mainViewModel = MainViewModel()
+        let rootViewController = ViewController(viewModel: mainViewModel)
+        
+        let initialViewController = UINavigationController(rootViewController: rootViewController)
+
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
+    
 }

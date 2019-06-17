@@ -16,12 +16,14 @@ class LocationResultsTableViewController: UITableViewController {
     var locationResults: [NMALink]?
     var searchBar: SearchBar?
     var lastResultPage: NMADiscoveryPage?
+    let viewModel: LocationResultViewModel
     
     enum Constants {
         static let cellHeight: CGFloat = 100.0
     }
     
-    override init(style: UITableView.Style) {
+    init(style: UITableView.Style, viewModel: LocationResultViewModel) {
+        self.viewModel = viewModel
         super.init(style: style)
     }
 
@@ -37,16 +39,7 @@ class LocationResultsTableViewController: UITableViewController {
 }
 extension LocationResultsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let locationManager = self.locationManager, let location = locationManager.location else { return }
-        let places = NMAPlaces.shared().makeSearchRequest(location: NMAGeoCoordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), query: searchBar.text.orDefault(""))
-        
-        places?.start(block: { request, data, error in
-            guard error == nil, data is NMADiscoveryPage, let resultPage = data as? NMADiscoveryPage else {
-                print ("invalid type returned \(String(describing: data))")
-                return
-            }
-            self.locationResults = resultPage.discoveryResults
-            self.lastResultPage = resultPage
+        self.viewModel.searchBar(searchBar, textDidChange: searchBar.text.orDefault(""), {
             self.tableView.reloadData()
         })
     }
@@ -63,60 +56,37 @@ extension LocationResultsTableViewController {
         searchBar.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: Spacing.L).isActive = true
         searchBar.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         searchBar.trailingAnchor.constraint(equalTo:self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-    }
-    
-    func getLocationDetails(url: String, _ completion: @escaping (Location) -> ()) {
-        NetworkManager().getDetails(url: url, completion: { location, error in
-            guard let location = location else { return }
-            completion(location)
-        })
+        
     }
 }
     // MARK: - Table view data source
 extension LocationResultsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.viewModel.numberOfSections(in: tableView)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.cellHeight
+        return self.viewModel.tableView(tableView, heightForRowAt: indexPath)
     }
 }
     // MARK: - Table view delegate
 extension LocationResultsTableViewController {
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let count = self.locationResults?.count, indexPath.row == count - 1 {
-            lastResultPage?.nextPageRequest?.start(block: { request, data, error in
-                guard error == nil, data is NMADiscoveryPage, let resultPage = data as? NMADiscoveryPage else {
-                    print ("invalid type returned \(String(describing: data))")
-                    return
-                }
-                self.locationResults?.append(contentsOf: resultPage.discoveryResults)
-                self.lastResultPage = resultPage
-                self.tableView.reloadData()
-            })
-        }
+        self.viewModel.tableView(tableView, willDisplay: cell, forRowAt: indexPath, {
+            self.tableView.reloadData()
+        })
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.locationResults?.count).orDefault(0)
+        return self.viewModel.tableView(tableView, numberOfRowsInSection: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.reuseIdentifier, for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
-
-        cell.selectionStyle = .none
-        cell.name = self.locationResults?[indexPath.row].name
-
-        return cell
+        return self.viewModel.tableView(tableView, cellForRowAt: indexPath)
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let url = self.locationResults?[indexPath.row].url else { return }
-        self.getLocationDetails(url: url, { location in
-            let detailPage = LocationDetailViewController(url: url, location: location, currentLocation: self.locationManager?.location)
-            DispatchQueue.main.async { self.navigationController?.pushViewController(detailPage, animated: true) }
-        })
+        self.viewModel.tableView(tableView, didSelectRowAt: indexPath, viewController: self)
     }
 }

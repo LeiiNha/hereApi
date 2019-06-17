@@ -8,27 +8,20 @@
 
 import UIKit
 import NMAKit
-import CoreLocation
 
 class LocationDetailViewController: UIViewController {
 
-    let url: String
-    let networkManager: NetworkManager
-    let location: Location
-    let currentLocation: CLLocation?
+   
     var mapView: NMAMapView?
+    let viewModel: LocationDetailViewModel
 
     private(set) var favoriteLocations: [Location]?
 
-    public init(url: String, location: Location, currentLocation: CLLocation?) {
-        self.url = url
-        self.networkManager = NetworkManager()
-        self.currentLocation = currentLocation
-        self.location = location
+    public init(viewModel: LocationDetailViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
 
         self.configureSubviews()
-        self.favoriteLocations = FavoritesManager.loadFavorites()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,27 +37,26 @@ class LocationDetailViewController: UIViewController {
 private extension LocationDetailViewController {
 
     func configureSubviews() {
-        guard let coords = self.location.position.first else { return }
-        self.addMapView(latitude: coords.key, longitude: coords.value)
-        self.addLabel(address: self.location.address, latitude: coords.key, longitude: coords.value)
+
+        self.addMapView()
+        self.addLabel()
         self.addLikeButton()
     }
 
-    func addMapView(latitude: Double, longitude: Double) {
+    func addMapView() {
         self.mapView = NMAMapView(frame: CGRect(x: 0, y: Spacing.XL, width: self.view.safeAreaLayoutGuide.layoutFrame.width, height: self.view.safeAreaLayoutGuide.layoutFrame.height / 2))
         guard let mapView = self.mapView else { return }
-        let coordinates = NMAGeoCoordinates(latitude: latitude, longitude: longitude)
 
-        let marker = NMAMapMarker(geoCoordinates: coordinates)
-        marker.icon = Images.pin
-
-        mapView.set(geoCenter: coordinates, animation: .none)
-        mapView.add(marker)
         mapView.zoomLevel = 15.0
         self.view.addSubview(mapView)
+        guard let coords = self.viewModel.getGeoCoordinatesForLocation(),
+            let marker = self.viewModel.getMarkerForLocation() else { return }
+        mapView.add(marker)
+        mapView.set(geoCenter: coords, animation: .none)
+
     }
 
-    func addLabel(address: Address, latitude: Double, longitude: Double) {
+    func addLabel() {
         let detailsText: UILabel = UILabel(frame: CGRect.zero)
         detailsText.textAlignment = .left
         detailsText.numberOfLines = 0
@@ -76,16 +68,18 @@ private extension LocationDetailViewController {
             detailsText.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
             detailsText.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         }
-        detailsText.text = String(format: "Street: %@\nPostal Code: %@\nLatitude: %@, Longitude: %@\n", address.street.orDefault(""), address.postalCode.orDefault(""), latitude.description, longitude.description)
-        if let currentLocation = currentLocation {
-            detailsText.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(coordinateA: currentLocation, coordinateB: CLLocation(latitude: latitude, longitude: longitude))))
+        detailsText.text = self.viewModel.getAddress()
+        
+        if let distance = self.viewModel.calculateDistanceToLocation() {
+        detailsText.text?.append(String(format: "Distance: %@ meters", distance))
         }
+        
     }
 
     func addLikeButton() {
         let likeBtn = UIButton(type: .custom)
-        likeBtn.setImage(self.getButtonImage(), for: .normal)
-        likeBtn.addTarget(self, action: #selector(handleFavorite(_:)), for: .touchUpInside)
+        likeBtn.setImage(self.viewModel.getImageForLocation(), for: .normal)
+        likeBtn.addTarget(self, action: #selector(handleBtnPress(_:)), for: .touchUpInside)
         self.view.addSubview(likeBtn)
         likeBtn.translatesAutoresizingMaskIntoConstraints = false
         likeBtn.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
@@ -94,23 +88,8 @@ private extension LocationDetailViewController {
         likeBtn.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -Spacing.XL).isActive = true
     }
 
-    func getButtonImage() -> UIImage? {
-        if FavoritesManager.checkIsFavorite(self.location) {
-            return Images.likeFilled
-        }
-        return Images.like
-    }
-
-    @objc func handleFavorite(_ sender: UIButton) {
-        if sender.currentImage == Images.like {
-            FavoritesManager.saveFavorite(location: self.location)
-        } else {
-            FavoritesManager.removeFavorite(self.location)
-        }
-        sender.setImage(self.getButtonImage(), for: .normal)
-    }
-
-    func calculateDistance(coordinateA: CLLocation, coordinateB: CLLocation) -> String {
-        return coordinateA.distance(from: coordinateB).description
+    @objc func handleBtnPress(_ sender: UIButton) {
+        self.viewModel.handleBtnPress(sender)
+        sender.setImage(self.viewModel.getImageForLocation(), for: .normal)
     }
 }
