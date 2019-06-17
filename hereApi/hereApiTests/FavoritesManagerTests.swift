@@ -22,53 +22,58 @@ class FavoritesManagerTests: XCTestCase {
     var location9 = Location(position: [239.0: 532.0], address: Address(text: "locOther", street: "locOther", postalCode: "locOther", district: "locOther", city: "locOther", county: "locOther", country: "locOther", countryCode: "locOther"))
     var location10 = Location(position: [2310.0: 532.0], address: Address(text: "locOther", street: "locOther", postalCode: "locOther", district: "locOther", city: "locOther", county: "locOther", country: "locOther", countryCode: "locOther"))
 
+    var favoritesManager: FavoritesManager!
 
+    override func setUp() {
+        self.favoritesManager = FavoritesManager()
+    }
     override func tearDown() {
-        FavoritesManager.clearFavorites()
+        self.favoritesManager.clearFavorites()
+        self.favoritesManager = nil
     }
     func testIfIsFavoriteTrue() {
-        FavoritesManager.saveFavorite(location: location1)
-        XCTAssertTrue(FavoritesManager.checkIsFavorite(location1))
+        self.favoritesManager.saveFavorite(location: location1)
+        XCTAssertTrue(self.favoritesManager.checkIsFavorite(location1))
     }
 
     func testIfIsFavoriteFalse() {
-        XCTAssertFalse(FavoritesManager.checkIsFavorite(location1))
+        XCTAssertFalse(self.favoritesManager.checkIsFavorite(location1))
     }
 
     func testFavoriteRemoved() {
-        FavoritesManager.saveFavorite(location: location1)
-        XCTAssertTrue(FavoritesManager.checkIsFavorite(location1))
-        FavoritesManager.removeFavorite(location1)
-        XCTAssertFalse(FavoritesManager.checkIsFavorite(location1))
+        self.favoritesManager.saveFavorite(location: location1)
+        XCTAssertTrue(self.favoritesManager.checkIsFavorite(location1))
+        self.favoritesManager.removeFavorite(location1)
+        XCTAssertFalse(self.favoritesManager.checkIsFavorite(location1))
     }
 
     func testFavoriteAdded() {
-        FavoritesManager.saveFavorite(location: location1)
-        XCTAssertTrue(FavoritesManager.checkIsFavorite(location1))
+        self.favoritesManager.saveFavorite(location: location1)
+        XCTAssertTrue(self.favoritesManager.checkIsFavorite(location1))
     }
 
     func testIfFavoritesFull() {
-        FavoritesManager.saveFavorite(location: location1)
-        FavoritesManager.saveFavorite(location: location2)
-        FavoritesManager.saveFavorite(location: location3)
-        FavoritesManager.saveFavorite(location: location4)
-        FavoritesManager.saveFavorite(location: location5)
-        FavoritesManager.saveFavorite(location: location6)
-        FavoritesManager.saveFavorite(location: location7)
-        FavoritesManager.saveFavorite(location: location8)
-        FavoritesManager.saveFavorite(location: location9)
-        FavoritesManager.saveFavorite(location: location10)
-        XCTAssertTrue(FavoritesManager.checkFavoritesIsFull())
+        self.favoritesManager.saveFavorite(location: location1)
+        self.favoritesManager.saveFavorite(location: location2)
+        self.favoritesManager.saveFavorite(location: location3)
+        self.favoritesManager.saveFavorite(location: location4)
+        self.favoritesManager.saveFavorite(location: location5)
+        self.favoritesManager.saveFavorite(location: location6)
+        self.favoritesManager.saveFavorite(location: location7)
+        self.favoritesManager.saveFavorite(location: location8)
+        self.favoritesManager.saveFavorite(location: location9)
+        self.favoritesManager.saveFavorite(location: location10)
+        XCTAssertTrue(self.favoritesManager.checkFavoritesIsFull())
     }
 
     func testGetFavorites() {
-        FavoritesManager.saveFavorite(location: location1)
-        XCTAssert((FavoritesManager.loadFavorites()?.count).orDefault(0) > 0, "error in loading favorites!")
+        self.favoritesManager.saveFavorite(location: location1)
+        XCTAssert((self.favoritesManager.loadFavorites()?.count).orDefault(0) > 0, "error in loading favorites!")
     }
 
     func testFavoritesCleared() {
-        FavoritesManager.saveFavorite(location: location1)
-        FavoritesManager.clearFavorites()
-        XCTAssert(FavoritesManager.loadFavorites() == nil, "Error in clearing favorites!")
+        self.favoritesManager.saveFavorite(location: location1)
+        self.favoritesManager.clearFavorites()
+        XCTAssert(self.favoritesManager.loadFavorites() == nil, "Error in clearing favorites!")
     }
 }

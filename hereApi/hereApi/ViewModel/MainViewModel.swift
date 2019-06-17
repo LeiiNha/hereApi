@@ -25,20 +25,22 @@ final class MainViewModel {
     private(set) var resultsTableView: UITableView?
     private(set) var locationResults: [NMALink]?
     private(set) var favoriteLocations: [Location]?
+    private let locationManager = LocationManager()
+    private let favoritesManager = FavoritesManager()
     
     enum Constants {
         static let mapZoomDefault: Float = 13.2
     }
     init() {
-        self.favoriteLocations = FavoritesManager.loadFavorites()
+        self.favoriteLocations = self.favoritesManager.loadFavorites()
     }
 
     func getMarkerForCurrentPosition() -> NMAMapMarker? {
-        return LocationManager.getMarkerFor(latitude: LocationManager.getCurrentLatitude(), longitude: LocationManager.getCurrentLongitude())
+        return self.locationManager.getMarkerFor(latitude: self.locationManager.getCurrentLatitude(), longitude: self.locationManager.getCurrentLongitude())
     }
     
     func getGeoCoordinatesForCurrentPos() -> NMAGeoCoordinates? {
-        guard let latitude = LocationManager.getCurrentLatitude(), let longitude = LocationManager.getCurrentLongitude() else { return nil }
+        guard let latitude = self.locationManager.getCurrentLatitude(), let longitude = self.locationManager.getCurrentLongitude() else { return nil }
         return NMAGeoCoordinates(latitude: latitude, longitude: longitude)
     }
 }
@@ -49,7 +51,7 @@ extension MainViewModel: MainViewModelDelegate {
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar, viewController: UIViewController) {
-        let resultsViewModel = LocationResultViewModel()
+        let resultsViewModel = LocationResultViewModel(locationManager: self.locationManager, favoritesManager: self.favoritesManager)
         let results = LocationResultsTableViewController(style: .grouped, viewModel: resultsViewModel)
         searchBar.resignFirstResponder()
         viewController.navigationController?.pushViewController(results, animated: true)

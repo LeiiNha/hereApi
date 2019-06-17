@@ -11,28 +11,36 @@ import NMAKit
 
 private let sharedLocationmanager = CLLocationManager()
 
-struct LocationManager {
+protocol LocationManagerProtocol {
+    func getCurrentLatitude() -> Double?
+    func getCurrentLongitude() -> Double?
+    func calculateDistanceTo(latitude: Double, longitude: Double) -> String?
+    func getGeoCoordinatesFor(latitude: Double, longitude: Double) -> NMAGeoCoordinates
+    func getMarkerFor(latitude: Double?, longitude: Double?) -> NMAMapMarker? 
+}
+
+struct LocationManager: LocationManagerProtocol {
     
-    static func getCurrentLatitude() -> Double? {
-        return sharedLocationmanager.location?.coordinate.latitude
-    }
-    
-    static func getCurrentLongitude() -> Double? {
-        return sharedLocationmanager.location?.coordinate.longitude
-    }
-    
-    static func getGeoCoordinatesFor(latitude: Double, longitude: Double) -> NMAGeoCoordinates {
+    func getGeoCoordinatesFor(latitude: Double, longitude: Double) -> NMAGeoCoordinates {
         return NMAGeoCoordinates(latitude: latitude, longitude: longitude)
     }
     
-    static func getMarkerFor(latitude: Double?, longitude: Double?) -> NMAMapMarker? {
+    func getMarkerFor(latitude: Double?, longitude: Double?) -> NMAMapMarker? {
         guard let latitude = latitude, let longitude = longitude else { return nil }
         let marker = NMAMapMarker(geoCoordinates: self.getGeoCoordinatesFor(latitude: latitude, longitude: longitude))
         marker.icon = Images.pin
         return marker
     }
     
-    static func calculateDistanceTo(latitude: Double, longitude: Double) -> String? {
+    func getCurrentLatitude() -> Double? {
+        return sharedLocationmanager.location?.coordinate.latitude
+    }
+    
+    func getCurrentLongitude() -> Double? {
+        return sharedLocationmanager.location?.coordinate.longitude
+    }
+    
+    func calculateDistanceTo(latitude: Double, longitude: Double) -> String? {
         guard let currentPos = sharedLocationmanager.location else { return nil }
         return currentPos.distance(from: CLLocation(latitude: latitude, longitude: longitude)).description
     }

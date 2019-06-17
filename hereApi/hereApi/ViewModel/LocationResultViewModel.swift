@@ -20,13 +20,19 @@ protocol LocationResultDelegate {
 }
 final class LocationResultViewModel {
     var locationResults: [NMALink]?
-    var searchBar: SearchBar?
     var lastResultPage: NMADiscoveryPage?
+    let networkManager: NetworkManager
+    let locationManager: LocationManagerProtocol
+    let favoritesManager: FavoritesManagerProtocol
     
-    init() {}
+    init(locationManager: LocationManagerProtocol, favoritesManager: FavoritesManagerProtocol) {
+        self.locationManager = locationManager
+        self.favoritesManager = favoritesManager
+        self.networkManager = NetworkManager()
+    }
     
     private func getLocationDetails(url: String, _ completion: @escaping (Location) -> ()) {
-        NetworkManager().getDetails(url: url, completion: { location, error in
+        networkManager.getDetails(url: url, completion: { location, error in
             guard let location = location else { return }
             completion(location)
         })
@@ -70,7 +76,7 @@ extension LocationResultViewModel: LocationResultDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String,_ completion: @escaping () -> ()) {
-        guard let latitude = LocationManager.getCurrentLatitude(), let longitude = LocationManager.getCurrentLongitude() else { return }
+        guard let latitude = self.locationManager.getCurrentLatitude(), let longitude = self.locationManager.getCurrentLongitude() else { return }
         let places = NMAPlaces.shared().makeSearchRequest(location: NMAGeoCoordinates(latitude: latitude, longitude: longitude), query: searchBar.text.orDefault(""))
         
         places?.start(block: { request, data, error in
@@ -87,7 +93,7 @@ extension LocationResultViewModel: LocationResultDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, viewController: UIViewController) {
         guard let url = self.locationResults?[indexPath.row].url else { return }
         self.getLocationDetails(url: url, { location in
-            let viewModel = LocationDetailViewModel(url: url, location: location, networkManager: NetworkManager())
+            let viewModel = LocationDetailViewModel(url: url, location: location, favoritesManager: self.favoritesManager, locationManager: self.locationManager)
             let detailPage = LocationDetailViewController(viewModel: viewModel)
             DispatchQueue.main.async { viewController.navigationController?.pushViewController(detailPage, animated: true) }
         })

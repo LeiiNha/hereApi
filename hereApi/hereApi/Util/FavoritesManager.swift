@@ -8,13 +8,22 @@
 
 import Foundation
 
-struct FavoritesManager {
+protocol FavoritesManagerProtocol {
+    func loadFavorites() -> [Location]?
+    func saveFavorite(location: Location)
+    func removeFavorite(_ location: Location)
+    func checkIsFavorite(_ location: Location) -> Bool
+    func checkFavoritesIsFull() -> Bool
+    func clearFavorites()
+}
+
+struct FavoritesManager: FavoritesManagerProtocol {
     enum Constants {
         static let maximumFavorites = 10
         static let favoritesKey = "SavedFavorites"
     }
     
-    static func loadFavorites() -> [Location]? {
+    func loadFavorites() -> [Location]? {
         if let savedFavorites = UserDefaults.standard.object(forKey: Constants.favoritesKey) as? Data {
             if let loadedFavorites = try? JSONDecoder().decode([Location].self, from: savedFavorites) {
                 return loadedFavorites
@@ -23,7 +32,7 @@ struct FavoritesManager {
         return nil
     }
 
-    static func saveFavorite(location: Location) {
+    func saveFavorite(location: Location) {
         var loadedFavorites: [Location] = self.loadFavorites().orDefault([])
         guard !checkFavoritesIsFull(), !checkIsFavorite(location) else { return }
         loadedFavorites.append(location)
@@ -32,7 +41,7 @@ struct FavoritesManager {
         }
     }
 
-    static func removeFavorite(_ location: Location) {
+    func removeFavorite(_ location: Location) {
         if var loadedFavorites = self.loadFavorites() {
             loadedFavorites.removeAll(where: { $0 == location })
             if let encoded = try? JSONEncoder().encode(loadedFavorites) {
@@ -41,21 +50,21 @@ struct FavoritesManager {
         }
     }
 
-    static func checkIsFavorite(_ location: Location) -> Bool {
+    func checkIsFavorite(_ location: Location) -> Bool {
         if let favorites = self.loadFavorites(), favorites.contains(where: {$0 == location}) {
             return true
         }
         return false
     }
 
-    static func checkFavoritesIsFull() -> Bool {
+    func checkFavoritesIsFull() -> Bool {
         if let favorites = self.loadFavorites(), favorites.count >= Constants.maximumFavorites {
             return true
         }
         return false
     }
 
-    static func clearFavorites() {
+    func clearFavorites() {
         UserDefaults.standard.removeObject(forKey: Constants.favoritesKey)
     }
 }

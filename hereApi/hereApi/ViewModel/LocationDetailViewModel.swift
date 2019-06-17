@@ -14,16 +14,19 @@ protocol LocationDetailDelegate {
 }
 final class LocationDetailViewModel {
     let url: String
-    let networkManager: NetworkManager
     let location: Location
+    let favoritesManager: FavoritesManagerProtocol
+    let locationManager: LocationManagerProtocol
     
     private(set) var favoriteLocations: [Location]?
     
-    init(url: String, location: Location, networkManager: NetworkManager) {
+    init(url: String, location: Location, favoritesManager: FavoritesManagerProtocol, locationManager: LocationManagerProtocol) {
         self.url = url
         self.location = location
-        self.networkManager = networkManager
-        self.favoriteLocations = FavoritesManager.loadFavorites()
+        self.favoritesManager = favoritesManager
+        self.locationManager = locationManager
+        self.favoriteLocations = self.favoritesManager.loadFavorites()
+        
     }
     
 }
@@ -31,11 +34,11 @@ final class LocationDetailViewModel {
 extension LocationDetailViewModel {
     func getGeoCoordinatesForLocation() -> NMAGeoCoordinates? {
         guard let latitude = self.location.position.first?.key, let longitude = self.location.position.first?.value else { return nil }
-        return LocationManager.getGeoCoordinatesFor(latitude: latitude, longitude: longitude)
+        return self.locationManager.getGeoCoordinatesFor(latitude: latitude, longitude: longitude)
     }
     func getMarkerForLocation() -> NMAMapMarker? {
        guard let latitude = self.location.position.first?.key, let longitude = self.location.position.first?.value else { return nil }
-        return LocationManager.getMarkerFor(latitude: latitude, longitude: longitude)
+        return self.locationManager.getMarkerFor(latitude: latitude, longitude: longitude)
     }
     
     func getAddress() -> String {
@@ -44,7 +47,7 @@ extension LocationDetailViewModel {
     }
     
     func getImageForLocation() -> UIImage? {
-        if FavoritesManager.checkIsFavorite(self.location) {
+        if self.favoritesManager.checkIsFavorite(self.location) {
             return Images.likeFilled
         }
         return Images.like
@@ -52,16 +55,16 @@ extension LocationDetailViewModel {
     
     func calculateDistanceToLocation() -> String? {
         guard let latitude = self.location.position.first?.key, let longitude = self.location.position.first?.value else { return nil }
-        return LocationManager.calculateDistanceTo(latitude: latitude, longitude: longitude)
+        return self.locationManager.calculateDistanceTo(latitude: latitude, longitude: longitude)
     }
 }
 
 extension LocationDetailViewModel: LocationDetailDelegate {
     func handleBtnPress(_ sender: UIButton) {
         if sender.currentImage == Images.like {
-            FavoritesManager.saveFavorite(location: self.location)
+            self.favoritesManager.saveFavorite(location: self.location)
         } else {
-            FavoritesManager.removeFavorite(self.location)
+            self.favoritesManager.removeFavorite(self.location)
         }
     }
 }

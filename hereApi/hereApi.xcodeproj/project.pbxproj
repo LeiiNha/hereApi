@@ -10,6 +10,7 @@
 		10F088FE247CD4C4FD806527 /* Pods_hereApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BAE9D863B715AC2AA8C834 /* Pods_hereApi.framework */; };
 		265771096775824AFE9C5961 /* Pods_hereApiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73A94673C194ACCEE417CB8E /* Pods_hereApiTests.framework */; };
 		313BAB63D54C7430C60B7BB2 /* Pods_hereApiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DC69954242D23AC794CBA0 /* Pods_hereApiUITests.framework */; };
+		CC1EF63C22B8456300EAF3EA /* LocationDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1EF63B22B8456300EAF3EA /* LocationDetailViewModelTests.swift */; };
 		CC65309922B4D33000D20DA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65309822B4D33000D20DA1 /* AppDelegate.swift */; };
 		CC65309B22B4D33000D20DA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65309A22B4D33000D20DA1 /* ViewController.swift */; };
 		CC6530A022B4D33300D20DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC65309F22B4D33300D20DA1 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		87DC69954242D23AC794CBA0 /* Pods_hereApiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hereApiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		937448AE42BB91E1604EEB70 /* Pods-hereApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApi.release.xcconfig"; path = "Target Support Files/Pods-hereApi/Pods-hereApi.release.xcconfig"; sourceTree = "<group>"; };
 		A2632DDA85440A0E124DC439 /* Pods-hereApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApi.debug.xcconfig"; path = "Target Support Files/Pods-hereApi/Pods-hereApi.debug.xcconfig"; sourceTree = "<group>"; };
+		CC1EF63B22B8456300EAF3EA /* LocationDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModelTests.swift; sourceTree = "<group>"; };
 		CC65309522B4D33000D20DA1 /* hereApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hereApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC65309822B4D33000D20DA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC65309A22B4D33000D20DA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -184,7 +186,6 @@
 				CC6530C822B4D48500D20DA1 /* Views */,
 				CC6530C722B4D47E00D20DA1 /* Controllers */,
 				CC65309822B4D33000D20DA1 /* AppDelegate.swift */,
-				CC65309A22B4D33000D20DA1 /* ViewController.swift */,
 				CC65309F22B4D33300D20DA1 /* Assets.xcassets */,
 				CC6530A122B4D33300D20DA1 /* LaunchScreen.storyboard */,
 				CC6530A422B4D33300D20DA1 /* Info.plist */,
@@ -199,6 +200,7 @@
 				CC6530AF22B4D33400D20DA1 /* Info.plist */,
 				EDA8F01922B7EB6000710DA2 /* FavoritesManagerTests.swift */,
 				EDA8F01B22B7F22100710DA2 /* ExtensionsTests.swift */,
+				CC1EF63B22B8456300EAF3EA /* LocationDetailViewModelTests.swift */,
 			);
 			path = hereApiTests;
 			sourceTree = "<group>";
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				CC6530D922B5B3CE00D20DA1 /* LocationDetailViewController.swift */,
+				CC65309A22B4D33000D20DA1 /* ViewController.swift */,
 				CC6530D322B59B0A00D20DA1 /* LocationResultsTableViewController.swift */,
 			);
 			path = Controllers;
@@ -593,6 +596,7 @@
 				CC6530AE22B4D33400D20DA1 /* hereApiTests.swift in Sources */,
 				EDA8F01C22B7F22100710DA2 /* ExtensionsTests.swift in Sources */,
 				EDA8F01A22B7EB6000710DA2 /* FavoritesManagerTests.swift in Sources */,
+				CC1EF63C22B8456300EAF3EA /* LocationDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
