@@ -46,6 +46,7 @@ extension LocationResultsTableViewController: UISearchBarDelegate {
                 return
             }
             self.locationResults = resultPage.discoveryResults
+            print("NUMERO DE RESULTADOS: ", resultPage.discoveryResults.count.description)
             self.lastResultPage = resultPage
             self.tableView.reloadData()
         })
@@ -106,6 +107,7 @@ extension LocationResultsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
 
+        cell.selectionStyle = .none
         cell.name = self.locationResults?[indexPath.row].name
         cell.distance = self.locationResults?[indexPath.row].url
 
@@ -114,9 +116,9 @@ extension LocationResultsTableViewController {
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LocationTableViewCell, let url = cell.distance else { return }
+        guard let url = self.locationResults?[indexPath.row].url else { return }
         self.getLocationDetails(url: url, { location in
-            let detailPage = LocationDetailViewController(url: url, location: location)
+            let detailPage = LocationDetailViewController(url: url, location: location, currentLocation: self.locationManager?.location)
             DispatchQueue.main.async { self.navigationController?.pushViewController(detailPage, animated: true) }
         })
 

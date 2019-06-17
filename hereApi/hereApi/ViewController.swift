@@ -61,6 +61,9 @@ private extension ViewController {
         guard let location = locationManager.location else { return }
         let coords: NMAGeoCoordinates = NMAGeoCoordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         mapView.set(geoCenter: coords, animation: .none)
+        let marker = NMAMapMarker(geoCoordinates: coords)
+        marker.icon = Images.pin
+        mapView.add(marker)
         mapView.zoomLevel = Constants.mapZoomDefault
     }
     

@@ -15,12 +15,14 @@ class LocationDetailViewController: UIViewController {
     let url: String
     let networkManager: NetworkManager
     let location: Location
+    let currentLocation: CLLocation?
 
     private(set) var favoriteLocations: [Location]?
 
-    public init(url: String, location: Location) {
+    public init(url: String, location: Location, currentLocation: CLLocation?) {
         self.url = url
         self.networkManager = NetworkManager()
+        self.currentLocation = currentLocation
         self.location = location
         super.init(nibName: nil, bundle: nil)
 
@@ -72,8 +74,8 @@ private extension LocationDetailViewController {
         detailsText.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
 
         detailsText.text = String(format: "Street: %@\nPostal Code: %@\nLatitude: %@, Longitude: %@\n", address.street.orDefault(""), address.postalCode.orDefault(""), latitude.description, longitude.description)
-        if let location = CLLocationManager().location {
-            detailsText.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(lat1: location.coordinate.latitude, long1: location.coordinate.longitude, lat2: latitude, long2: longitude)))
+        if let currentLocation = currentLocation {
+            detailsText.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(lat1: currentLocation.coordinate.latitude, long1: currentLocation.coordinate.longitude, lat2: latitude, long2: longitude)))
         }
     }
 
