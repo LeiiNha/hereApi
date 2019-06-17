@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'hereApi' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for hereApi
+  pod 'HEREMapsStarter', '>= 3.10'
+
+  target 'hereApiTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'hereApiUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
