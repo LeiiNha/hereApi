@@ -75,7 +75,7 @@ private extension LocationDetailViewController {
 
         detailsText.text = String(format: "Street: %@\nPostal Code: %@\nLatitude: %@, Longitude: %@\n", address.street.orDefault(""), address.postalCode.orDefault(""), latitude.description, longitude.description)
         if let currentLocation = currentLocation {
-            detailsText.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(lat1: currentLocation.coordinate.latitude, long1: currentLocation.coordinate.longitude, lat2: latitude, long2: longitude)))
+            detailsText.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(coordinateA: currentLocation, coordinateB: CLLocation(latitude: latitude, longitude: longitude))))
         }
     }
 
@@ -107,12 +107,7 @@ private extension LocationDetailViewController {
         sender.setImage(self.getButtonImage(), for: .normal)
     }
 
-    func calculateDistance(lat1: Double, long1: Double, lat2: Double, long2: Double) -> String {
-
-        let coordinateA = CLLocation(latitude: lat1, longitude: long1)
-        let coordinateB = CLLocation(latitude: lat2, longitude: long2)
-
-        let distanceInMeters = coordinateA.distance(from: coordinateB)
-        return distanceInMeters.description
+    func calculateDistance(coordinateA: CLLocation, coordinateB: CLLocation) -> String {
+        return coordinateA.distance(from: coordinateB).description
     }
 }

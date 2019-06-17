@@ -77,10 +77,6 @@ extension LocationResultsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (self.locationResults?.count).orDefault(0)
-    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constants.cellHeight
@@ -102,13 +98,16 @@ extension LocationResultsTableViewController {
             })
         }
     }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (self.locationResults?.count).orDefault(0)
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
         cell.name = self.locationResults?[indexPath.row].name
-        cell.distance = self.locationResults?[indexPath.row].url
 
         return cell
     }
