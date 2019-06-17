@@ -6,8 +6,6 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
-
 extension Optional {
     func orDefault(_ defaultExpression: @autoclosure () -> Wrapped) -> Wrapped {
         guard let value = self else {

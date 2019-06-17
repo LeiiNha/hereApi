@@ -6,7 +6,6 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
 import NMAKit
 

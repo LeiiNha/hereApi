@@ -6,7 +6,6 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
 public enum NetworkError: String, Error {
     case parametersNil = "Parameters were nil"
     case encodingFailed = "Encoding parameters went wrong"

@@ -22,10 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         self.locationManager.requestAlwaysAuthorization()
         
-        let kHelloMapAppID = "STcFNMxGs5WeszuSC777"
-        let kHelloMapAppCode = "1AxMuqK22Wo5DjvjjrWYSw"
-        
-        NMAApplicationContext.set(appId: kHelloMapAppID, appCode: kHelloMapAppCode)
+        NMAApplicationContext.set(appId: "STcFNMxGs5WeszuSC777", appCode: "1AxMuqK22Wo5DjvjjrWYSw")
 
         self.locationManager.requestWhenInUseAuthorization()
         self.window = UIWindow(frame: UIScreen.main.bounds)

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
-
 struct Address: Codable {
     let text: String?
     let street: String?

@@ -6,9 +6,7 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
-
-struct Location: Codable {
+struct Location: Codable, Equatable {
     let position: Dictionary<Double, Double>
     let address: Address
 

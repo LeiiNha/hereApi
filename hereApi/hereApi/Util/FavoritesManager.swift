@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct FavoritesManager {
     enum Constants {
         static let maximumFavorites = 10

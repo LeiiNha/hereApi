@@ -6,8 +6,6 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-import Foundation
-
 struct Position: Codable {
     let latitude: Float
     let longitude: Float
