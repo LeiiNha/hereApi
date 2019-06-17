@@ -14,6 +14,7 @@ struct FavoritesManager {
         static let maximumFavorites = 10
         static let favoritesKey = "SavedFavorites"
     }
+    
     static func loadFavorites() -> [Location]? {
         if let savedFavorites = UserDefaults.standard.object(forKey: Constants.favoritesKey) as? Data {
             if let loadedFavorites = try? JSONDecoder().decode([Location].self, from: savedFavorites) {
@@ -24,22 +25,11 @@ struct FavoritesManager {
     }
 
     static func saveFavorite(location: Location) {
-        if var loadedFavorites = self.loadFavorites() {
-            // if let savedFavorites = defaults.object(forKey: "SavedFavorites") as? Data {
-            //   let decoder = JSONDecoder()
-            // if var loadedFavorites = try? decoder.decode([Location].self, from: savedFavorites) {
-
-            guard !checkFavoritesIsFull(), !checkIsFavorite(location) else { return }
-            loadedFavorites.append(location)
-            if let encoded = try? JSONEncoder().encode(loadedFavorites) {
-                UserDefaults.standard.set(encoded, forKey: Constants.favoritesKey)
-            }
-            //}
-        } else {
-            let encoder = JSONEncoder()
-            if let encoded = try? encoder.encode([location]) {
-                UserDefaults.standard.set(encoded, forKey: Constants.favoritesKey)
-            }
+        var loadedFavorites: [Location] = self.loadFavorites().orDefault([])
+        guard !checkFavoritesIsFull(), !checkIsFavorite(location) else { return }
+        loadedFavorites.append(location)
+        if let encoded = try? JSONEncoder().encode(loadedFavorites) {
+            UserDefaults.standard.set(encoded, forKey: Constants.favoritesKey)
         }
     }
 
