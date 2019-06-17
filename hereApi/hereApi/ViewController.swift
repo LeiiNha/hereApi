@@ -74,15 +74,17 @@ private extension ViewController {
         guard self.favoriteLocations != nil else { return }
 
         let favoritesTableView = UITableView(frame: CGRect.zero, style: .grouped)
-        favoritesTableView.register(LocationTableViewCell.self, forCellReuseIdentifier: "cell")
+        favoritesTableView.register(LocationTableViewCell.self, forCellReuseIdentifier: LocationTableViewCell.reuseIdentifier)
         self.view.addSubview(favoritesTableView)
         favoritesTableView.delegate = self
         favoritesTableView.dataSource = self
-        
-        favoritesTableView.translatesAutoresizingMaskIntoConstraints = false
-        favoritesTableView.heightAnchor.constraint(equalToConstant: 200.0).isActive = true
-        favoritesTableView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        favoritesTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+
+        if let mapView = self.mapView {
+            favoritesTableView.translatesAutoresizingMaskIntoConstraints = false
+            favoritesTableView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
+            favoritesTableView.topAnchor.constraint(equalTo: mapView.bottomAnchor).isActive = true
+            favoritesTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        }
     }
 }
 
@@ -121,7 +123,7 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.reuseIdentifier, for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
         cell.name = self.favoriteLocations?[indexPath.row].address.text?.replacingOccurrences(of: "<br/>", with: " ")

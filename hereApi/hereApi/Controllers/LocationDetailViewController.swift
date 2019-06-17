@@ -16,6 +16,7 @@ class LocationDetailViewController: UIViewController {
     let networkManager: NetworkManager
     let location: Location
     let currentLocation: CLLocation?
+    var mapView: NMAMapView?
 
     private(set) var favoriteLocations: [Location]?
 
@@ -50,7 +51,8 @@ private extension LocationDetailViewController {
     }
 
     func addMapView(latitude: Double, longitude: Double) {
-        let mapView = NMAMapView(frame: CGRect(x: 0, y: Spacing.XL, width: self.view.safeAreaLayoutGuide.layoutFrame.width, height: self.view.safeAreaLayoutGuide.layoutFrame.height / 2))
+        self.mapView = NMAMapView(frame: CGRect(x: 0, y: Spacing.XL, width: self.view.safeAreaLayoutGuide.layoutFrame.width, height: self.view.safeAreaLayoutGuide.layoutFrame.height / 2))
+        guard let mapView = self.mapView else { return }
         let coordinates = NMAGeoCoordinates(latitude: latitude, longitude: longitude)
 
         let marker = NMAMapMarker(geoCoordinates: coordinates)
@@ -69,10 +71,11 @@ private extension LocationDetailViewController {
         detailsText.font.withSize(FontSize.S)
         detailsText.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(detailsText)
-        detailsText.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -200.0).isActive = true
-        detailsText.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        detailsText.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-
+        if let mapView = self.mapView {
+            detailsText.topAnchor.constraint(equalTo: mapView.bottomAnchor).isActive = true
+            detailsText.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            detailsText.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        }
         detailsText.text = String(format: "Street: %@\nPostal Code: %@\nLatitude: %@, Longitude: %@\n", address.street.orDefault(""), address.postalCode.orDefault(""), latitude.description, longitude.description)
         if let currentLocation = currentLocation {
             detailsText.text?.append(String(format: "Distance: %@ meters", self.calculateDistance(coordinateA: currentLocation, coordinateB: CLLocation(latitude: latitude, longitude: longitude))))

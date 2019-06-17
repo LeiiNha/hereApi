@@ -32,7 +32,7 @@ class LocationResultsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchBar()
-        self.tableView.register(LocationTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.register(LocationTableViewCell.self, forCellReuseIdentifier: LocationTableViewCell.reuseIdentifier)
     }
 }
 extension LocationResultsTableViewController: UISearchBarDelegate {
@@ -104,7 +104,7 @@ extension LocationResultsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.reuseIdentifier, for: indexPath) as? LocationTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
         cell.name = self.locationResults?[indexPath.row].name

@@ -19,7 +19,6 @@
 		CC6530B922B4D33400D20DA1 /* hereApiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530B822B4D33400D20DA1 /* hereApiUITests.swift */; };
 		CC6530CA22B4D69E00D20DA1 /* SearchBar+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530C922B4D69E00D20DA1 /* SearchBar+Custom.swift */; };
 		CC6530CC22B4D9FA00D20DA1 /* ThemeGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530CB22B4D9FA00D20DA1 /* ThemeGuide.swift */; };
-		CC6530CE22B588A100D20DA1 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530CD22B588A100D20DA1 /* ShortcutView.swift */; };
 		CC6530D022B58A4C00D20DA1 /* Int+Even.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530CF22B58A4C00D20DA1 /* Int+Even.swift */; };
 		CC6530D422B59B0A00D20DA1 /* LocationResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530D322B59B0A00D20DA1 /* LocationResultsTableViewController.swift */; };
 		CC6530D822B5A68500D20DA1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530D722B5A68500D20DA1 /* LocationTableViewCell.swift */; };
@@ -81,7 +80,6 @@
 		CC6530BA22B4D33400D20DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6530C922B4D69E00D20DA1 /* SearchBar+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBar+Custom.swift"; sourceTree = "<group>"; };
 		CC6530CB22B4D9FA00D20DA1 /* ThemeGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeGuide.swift; sourceTree = "<group>"; };
-		CC6530CD22B588A100D20DA1 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
 		CC6530CF22B58A4C00D20DA1 /* Int+Even.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Even.swift"; sourceTree = "<group>"; };
 		CC6530D322B59B0A00D20DA1 /* LocationResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationResultsTableViewController.swift; sourceTree = "<group>"; };
 		CC6530D722B5A68500D20DA1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				CC6530C922B4D69E00D20DA1 /* SearchBar+Custom.swift */,
-				CC6530CD22B588A100D20DA1 /* ShortcutView.swift */,
 				CC6530D722B5A68500D20DA1 /* LocationTableViewCell.swift */,
 			);
 			path = Views;
@@ -543,7 +540,6 @@
 				CC6530E822B5B8E400D20DA1 /* HTTPTask.swift in Sources */,
 				EDA8F01722B7C45B00710DA2 /* FavoritesManager.swift in Sources */,
 				CC6530EA22B5B8F400D20DA1 /* NetworkRouter.swift in Sources */,
-				CC6530CE22B588A100D20DA1 /* ShortcutView.swift in Sources */,
 				CC6530D022B58A4C00D20DA1 /* Int+Even.swift in Sources */,
 				CC6530E222B5B85A00D20DA1 /* HereAPI.swift in Sources */,
 				CC6530D822B5A68500D20DA1 /* LocationTableViewCell.swift in Sources */,
