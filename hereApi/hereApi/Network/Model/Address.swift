@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Address {
+struct Address: Codable {
     let text: String?
     let street: String?
     let postalCode: String?
@@ -17,30 +17,4 @@ struct Address {
     let county: String?
     let country: String?
     let countryCode: String?
-    
-    private enum CodingKeys: String, CodingKey {
-        case text
-        case street
-        case postalCode
-        case district
-        case city
-        case county
-        case country
-        case countryCode
-    }
-}
-
-extension Address: Decodable {
-    init(decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        text = try values.decodeIfPresent(String.self, forKey: .text)
-        street = try values.decodeIfPresent(String.self, forKey: .street)
-        postalCode = try values.decodeIfPresent(String.self, forKey: .postalCode)
-        district = try values.decodeIfPresent(String.self, forKey: .district)
-        city = try values.decodeIfPresent(String.self, forKey: .city)
-        county = try values.decodeIfPresent(String.self, forKey: .county)
-        country = try values.decodeIfPresent(String.self, forKey: .country)
-        countryCode = try values.decodeIfPresent(String.self, forKey: .countryCode)
-    }
 }

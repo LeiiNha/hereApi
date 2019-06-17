@@ -9,33 +9,19 @@
 import UIKit
 
 class LocationTableViewCell: UITableViewCell {
-    
+
     var name: String? {
         didSet {
             nameLabel.text = name
         }
     }
-    var distance: String? {
-        didSet {
-            distanceLabel.text = distance
-        }
-    }
+    var distance: String?
     
     private let nameLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.boldSystemFont(ofSize: 16)
+        lbl.font = UIFont.boldSystemFont(ofSize: FontSize.S)
         lbl.textAlignment = .left
-        return lbl
-    }()
-    
-    
-    private let distanceLabel : UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.systemFont(ofSize: 16)
-        lbl.textAlignment = .right
-        lbl.numberOfLines = 0
         return lbl
     }()
 
@@ -45,7 +31,6 @@ class LocationTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = Colors.primary.withAlphaComponent(0.3)
         addSubview(nameLabel)
-        addSubview(distanceLabel)
         setAnchors()
     }
     

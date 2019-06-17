@@ -38,6 +38,8 @@
 		CC6530F822B6297800D20DA1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530F722B6297800D20DA1 /* Location.swift */; };
 		CC6530FA22B629D800D20DA1 /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530F922B629D800D20DA1 /* Coordinates.swift */; };
 		CC6530FC22B62B1B00D20DA1 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530FB22B62B1B00D20DA1 /* Address.swift */; };
+		EDA8F01222B78B5800710DA2 /* Optional+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8F01122B78B5800710DA2 /* Optional+Default.swift */; };
+		EDA8F01722B7C45B00710DA2 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA8F01622B7C45B00710DA2 /* FavoritesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		DCB0B5524C55255367291F7E /* Pods-hereApiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApiUITests.debug.xcconfig"; path = "Target Support Files/Pods-hereApiUITests/Pods-hereApiUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E25F0C1F27BB5530F8A8B8D0 /* Pods-hereApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApiTests.debug.xcconfig"; path = "Target Support Files/Pods-hereApiTests/Pods-hereApiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBE2914BF816B950429D48D8 /* Pods-hereApiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hereApiUITests.release.xcconfig"; path = "Target Support Files/Pods-hereApiUITests/Pods-hereApiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EDA8F01122B78B5800710DA2 /* Optional+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Default.swift"; sourceTree = "<group>"; };
+		EDA8F01622B7C45B00710DA2 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 		CC65309722B4D33000D20DA1 /* hereApi */ = {
 			isa = PBXGroup;
 			children = (
+				EDA8F01022B78B4900710DA2 /* Extensions */,
 				CC6530DB22B5B3E500D20DA1 /* Network */,
 				CC6530C822B4D48500D20DA1 /* Views */,
 				CC6530C722B4D47E00D20DA1 /* Controllers */,
@@ -283,6 +288,7 @@
 				CC6530F722B6297800D20DA1 /* Location.swift */,
 				CC6530F922B629D800D20DA1 /* Coordinates.swift */,
 				CC6530FB22B62B1B00D20DA1 /* Address.swift */,
+				EDA8F01622B7C45B00710DA2 /* FavoritesManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +304,14 @@
 				EBE2914BF816B950429D48D8 /* Pods-hereApiUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EDA8F01022B78B4900710DA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EDA8F01122B78B5800710DA2 /* Optional+Default.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,12 +541,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC6530E822B5B8E400D20DA1 /* HTTPTask.swift in Sources */,
+				EDA8F01722B7C45B00710DA2 /* FavoritesManager.swift in Sources */,
 				CC6530EA22B5B8F400D20DA1 /* NetworkRouter.swift in Sources */,
 				CC6530CE22B588A100D20DA1 /* ShortcutView.swift in Sources */,
 				CC6530D022B58A4C00D20DA1 /* Int+Even.swift in Sources */,
 				CC6530E222B5B85A00D20DA1 /* HereAPI.swift in Sources */,
 				CC6530D822B5A68500D20DA1 /* LocationTableViewCell.swift in Sources */,
 				CC6530EE22B5B93C00D20DA1 /* ParameterEncoding.swift in Sources */,
+				EDA8F01222B78B5800710DA2 /* Optional+Default.swift in Sources */,
 				CC6530FA22B629D800D20DA1 /* Coordinates.swift in Sources */,
 				CC6530F022B5B94F00D20DA1 /* URLParameterEncoder.swift in Sources */,
 				CC6530F422B5B9EA00D20DA1 /* NetworkError.swift in Sources */,

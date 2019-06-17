@@ -33,8 +33,8 @@ struct NetworkManager {
         }
     }
     
-    func getDetails(url: String, completion: @escaping(_ species: Location?, _ error: String?) -> ()) {
-        guard let url = URL(string: "https://places.hybrid.api.here.com/places/v1/places/6208lxx5-4b87ae261ffd095982f3c398a124e25d;context=Zmxvdy1pZD1jMTEyMTI5NC1jZjM1LTVlMmUtODQ0OS1lMWI0ZDliMzBiYmRfMTU2MDY3MTk3MjAwMl8yMzdfODgwMiZyYW5rPTU?app_id=STcFNMxGs5WeszuSC777&app_code=1AxMuqK22Wo5DjvjjrWYSw") else { completion(nil, "Error in url"); return }
+    func getDetails(url: String, completion: @escaping(_ location: Location?, _ error: String?) -> ()) {
+        guard let url = URL(string: url) else { completion(nil, "Error in url"); return }
         router.request(.directUrl(url: url), completion: { data, response, error in
             guard error == nil else { completion(nil, NetworkResponse.networkFail.rawValue); return }
             if let response = response as? HTTPURLResponse {
@@ -45,8 +45,8 @@ struct NetworkManager {
                         return
                     }
                     do {
-                        let apiResponse = try JSONDecoder().decode(Location.self, from: responseData)
-                        completion(apiResponse, nil)
+                        let apiResponse = try JSONDecoder().decode(LocationResponse.self, from: responseData)
+                        completion(apiResponse.location, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }

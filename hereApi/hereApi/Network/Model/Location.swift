@@ -8,20 +8,18 @@
 
 import Foundation
 
-struct Location {
-    let coordinates: Coordinates?
-    let address: Address?
-    
-    private enum CodingKeys: String,CodingKey {
-        case coordinates = "position"
-        case address
-    }
+struct Location: Codable {
+    let position: Dictionary<Double, Double>
+    let address: Address
+
 }
 
-extension Location: Decodable {
-    init(decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        coordinates = try values.decodeIfPresent(Coordinates.self, forKey: .coordinates)
-        address = try values.decodeIfPresent(Address.self, forKey: .address)
-    }
+struct LocationResponse: Codable {
+    let location: Location
+}
+
+func ==(lhs: Location, rhs: Location) -> Bool {
+    guard let lhsPosition = lhs.position.first, let rhsPosition = rhs.position.first else { return false }
+    return lhsPosition.key == rhsPosition.key &&
+            lhsPosition.value == rhsPosition.value
 }

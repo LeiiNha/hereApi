@@ -35,7 +35,7 @@ class LocationResultsTableViewController: UITableViewController {
 extension LocationResultsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let locationManager = self.locationManager, let location = locationManager.location else { return }
-        let places = NMAPlaces.shared().makeSearchRequest(location: NMAGeoCoordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), query: searchBar.text ?? "")
+        let places = NMAPlaces.shared().makeSearchRequest(location: NMAGeoCoordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), query: searchBar.text.orDefault(""))
         
         places?.start(block: { request, data, error in
             guard error == nil, data is NMADiscoveryPage, let resultPage = data as? NMADiscoveryPage else {
@@ -60,6 +60,13 @@ extension LocationResultsTableViewController {
         searchBar.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         searchBar.trailingAnchor.constraint(equalTo:self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
+    
+    func getLocationDetails(url: String, _ completion: @escaping (Location) -> ()) {
+        NetworkManager().getDetails(url: url, completion: { location, error in
+            guard let location = location else { return }
+            completion(location)
+        })
+    }
 }
     // MARK: - Table view data source
 extension LocationResultsTableViewController {
@@ -68,7 +75,7 @@ extension LocationResultsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.locationResults?.count ?? 0
+        return (self.locationResults?.count).orDefault(0)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -91,8 +98,11 @@ extension LocationResultsTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? LocationTableViewCell, let url = cell.distance else { return }
-        let detailPage = LocationDetailViewController(url: url)
-        self.navigationController?.pushViewController(detailPage, animated: true)
+        self.getLocationDetails(url: url, { location in
+            let detailPage = LocationDetailViewController(url: url, location: location)
+            DispatchQueue.main.async { self.navigationController?.pushViewController(detailPage, animated: true) }
+        })
+
     }
 }
 

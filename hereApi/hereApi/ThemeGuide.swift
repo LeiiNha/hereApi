@@ -22,3 +22,13 @@ struct Colors {
     static let secondary: UIColor = UIColor(red: 49.0/255.0, green: 0.0/255.0, blue: 255.0/255.0, alpha: 1)
     static let terciary: UIColor = UIColor(red: 239.0/255.0, green: 177.0/255.0, blue: 146.0/255.0, alpha: 1)
 }
+
+struct FontSize {
+    static let S: CGFloat = 16.0
+}
+
+struct Images {
+    static let pin = UIImage(named: "pin")
+    static let like = UIImage(named: "like")
+    static let likeFilled = UIImage(named: "like_filled")
+}
