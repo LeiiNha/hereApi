@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
-        #error Please enter an app id and app code!
+        #error ("Please enter an app id and app code!")
         // An app id and app code may be obtained from https://developer.here.com/develop/mobile-sdks
         // If a valid app id and app code is not entered the map will not render and other
         // SDK features will fail.
