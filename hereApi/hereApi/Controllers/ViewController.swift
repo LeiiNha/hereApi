@@ -73,7 +73,7 @@ private extension ViewController {
         guard let coords = self.mainViewModel.getGeoCoordinatesForCurrentPos(),
             let marker = self.mainViewModel.getMarkerForCurrentPosition() else { return }
         mapView.add(marker)
-        mapView.set(geoCenter: coords, animation: .none)
+        mapView.set(geoCenter: coords, animation: .linear)
     }
 
     func configureFavoritesTableView() {

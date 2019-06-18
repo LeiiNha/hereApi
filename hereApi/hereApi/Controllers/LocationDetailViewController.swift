@@ -54,7 +54,7 @@ private extension LocationDetailViewController {
         guard let coords = self.viewModel.getGeoCoordinatesForLocation(),
             let marker = self.viewModel.getMarkerForLocation() else { return }
         mapView.add(marker)
-        mapView.set(geoCenter: coords, animation: .none)
+        mapView.set(geoCenter: coords, animation: .linear)
 
     }
 
