@@ -11,7 +11,6 @@ import NMAKit
 
 final class LocationDetailViewController: UIViewController {
 
-   
     private(set) var mapView: NMAMapView?
     let viewModel: LocationDetailViewModel
 
@@ -23,11 +22,11 @@ final class LocationDetailViewController: UIViewController {
 
         self.configureSubviews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Colors.primary
@@ -44,7 +43,10 @@ private extension LocationDetailViewController {
     }
 
     func addMapView() {
-        self.mapView = NMAMapView(frame: CGRect(x: 0, y: Spacing.XL, width: self.view.safeAreaLayoutGuide.layoutFrame.width, height: self.view.safeAreaLayoutGuide.layoutFrame.height / 2))
+        self.mapView = NMAMapView(frame: CGRect(x: 0,
+                                                y: Spacing.xLarge,
+                                                width: self.view.safeAreaLayoutGuide.layoutFrame.width,
+                                                height: self.view.safeAreaLayoutGuide.layoutFrame.height / 2))
         guard let mapView = self.mapView else { return }
 
         mapView.zoomLevel = 15.0
@@ -60,7 +62,7 @@ private extension LocationDetailViewController {
         let detailsText: UILabel = UILabel(frame: CGRect.zero)
         detailsText.textAlignment = .left
         detailsText.numberOfLines = 0
-        detailsText.font.withSize(FontSize.S)
+        detailsText.font.withSize(FontSize.small)
         detailsText.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(detailsText)
         if let mapView = self.mapView {
@@ -69,11 +71,11 @@ private extension LocationDetailViewController {
             detailsText.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         }
         detailsText.text = self.viewModel.getAddress()
-        
+
         if let distance = self.viewModel.calculateDistanceToLocation() {
         detailsText.text?.append(String(format: "Distance: %@ meters", distance))
         }
-        
+
     }
 
     func addLikeButton() {
@@ -85,7 +87,8 @@ private extension LocationDetailViewController {
         likeBtn.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
         likeBtn.widthAnchor.constraint(equalToConstant: 100.0).isActive = true
         likeBtn.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        likeBtn.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -Spacing.XL).isActive = true
+        likeBtn.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,
+                                        constant: -Spacing.xLarge).isActive = true
     }
 
     @objc func handleBtnPress(_ sender: UIButton) {

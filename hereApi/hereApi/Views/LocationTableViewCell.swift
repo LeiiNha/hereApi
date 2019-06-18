@@ -15,17 +15,17 @@ final class LocationTableViewCell: UITableViewCell {
             nameLabel.text = name
         }
     }
-    
-    private let nameLabel : UILabel = {
+
+    private let nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.boldSystemFont(ofSize: FontSize.S)
+        lbl.font = UIFont.boldSystemFont(ofSize: FontSize.small)
         lbl.textAlignment = .left
         return lbl
     }()
 
     static var reuseIdentifier: String = "LocationTableViewCell"
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = Colors.terciary.withAlphaComponent(0.3)
@@ -39,17 +39,16 @@ final class LocationTableViewCell: UITableViewCell {
         self.addSubview(pinImageView)
         pinImageView.translatesAutoresizingMaskIntoConstraints = false
         pinImageView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        pinImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -Spacing.M).isActive = true
+        pinImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                               constant: -Spacing.medium).isActive = true
     }
-    
     private func setAnchors() {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: Spacing.M).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                           constant: Spacing.medium).isActive = true
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
-public typealias HTTPHeaders = [String:String]
+public typealias HTTPHeaders = [String: String]
 
 public enum HTTPTask {
     case request

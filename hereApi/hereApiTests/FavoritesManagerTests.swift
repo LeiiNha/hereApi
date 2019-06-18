@@ -6,6 +6,7 @@
 //  Copyright © 2019 Erica Geraldes. All rights reserved.
 //
 
+// swiftlint:disable line_length
 import XCTest
 @testable import hereApi
 

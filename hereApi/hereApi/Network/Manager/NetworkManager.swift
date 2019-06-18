@@ -8,9 +8,9 @@
 
 import Foundation
 struct NetworkManager {
-    
+
     private let router = Router<HereAPI>()
-    
+
     enum NetworkResponse: String {
         case success
         case badRequest = "bad request"
@@ -19,12 +19,12 @@ struct NetworkManager {
         case unableToDecode = "Could not decode"
         case networkFail = "Check your connection"
     }
-    
+
     enum Result<String> {
         case success
         case failure(String)
     }
-    
+
     private func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {
         case 200...299: return .success
@@ -32,8 +32,8 @@ struct NetworkManager {
         default: return .failure(NetworkResponse.failed.rawValue)
         }
     }
-    
-    func getDetails(url: String, completion: @escaping(_ location: Location?, _ error: String?) -> ()) {
+
+    func getDetails(url: String, completion: @escaping(_ location: Location?, _ error: String?) -> Void) {
         guard let url = URL(string: url) else { completion(nil, "Error in url"); return }
         router.request(.directUrl(url: url), completion: { data, response, error in
             guard error == nil else { completion(nil, NetworkResponse.networkFail.rawValue); return }

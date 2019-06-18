@@ -7,7 +7,7 @@
 //
 
 struct Location: Codable, Equatable {
-    let position: Dictionary<Double, Double>
+    let position: [Double: Double]
     let address: Address
 
 }
@@ -16,7 +16,7 @@ struct LocationResponse: Codable {
     let location: Location
 }
 
-func ==(lhs: Location, rhs: Location) -> Bool {
+func == (lhs: Location, rhs: Location) -> Bool {
     guard let lhsPosition = lhs.position.first, let rhsPosition = rhs.position.first else { return false }
     return lhsPosition.key == rhsPosition.key &&
             lhsPosition.value == rhsPosition.value

@@ -10,8 +10,7 @@ import UIKit
 
 import NMAKit
 
-class ViewController: UIViewController
-{
+class ViewController: UIViewController {
     @IBOutlet weak var mapView: NMAMapView!
 
     override func viewWillAppear(_ animated: Bool) {

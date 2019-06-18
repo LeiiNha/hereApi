@@ -15,7 +15,6 @@
 		CC65309B22B4D33000D20DA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65309A22B4D33000D20DA1 /* ViewController.swift */; };
 		CC6530A022B4D33300D20DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC65309F22B4D33300D20DA1 /* Assets.xcassets */; };
 		CC6530A322B4D33300D20DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6530A122B4D33300D20DA1 /* LaunchScreen.storyboard */; };
-		CC6530AE22B4D33400D20DA1 /* hereApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530AD22B4D33400D20DA1 /* hereApiTests.swift */; };
 		CC6530B922B4D33400D20DA1 /* hereApiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530B822B4D33400D20DA1 /* hereApiUITests.swift */; };
 		CC6530CA22B4D69E00D20DA1 /* SearchBar+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530C922B4D69E00D20DA1 /* SearchBar+Custom.swift */; };
 		CC6530CC22B4D9FA00D20DA1 /* ThemeGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6530CB22B4D9FA00D20DA1 /* ThemeGuide.swift */; };
@@ -78,7 +77,6 @@
 		CC6530A222B4D33300D20DA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC6530A422B4D33300D20DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6530A922B4D33400D20DA1 /* hereApiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hereApiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC6530AD22B4D33400D20DA1 /* hereApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hereApiTests.swift; sourceTree = "<group>"; };
 		CC6530AF22B4D33400D20DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC6530B422B4D33400D20DA1 /* hereApiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hereApiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6530B822B4D33400D20DA1 /* hereApiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hereApiUITests.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 		CC6530AC22B4D33400D20DA1 /* hereApiTests */ = {
 			isa = PBXGroup;
 			children = (
-				CC6530AD22B4D33400D20DA1 /* hereApiTests.swift */,
 				CC6530AF22B4D33400D20DA1 /* Info.plist */,
 				EDA8F01922B7EB6000710DA2 /* FavoritesManagerTests.swift */,
 				EDA8F01B22B7F22100710DA2 /* ExtensionsTests.swift */,
@@ -346,6 +343,7 @@
 				CC65309222B4D33000D20DA1 /* Frameworks */,
 				CC65309322B4D33000D20DA1 /* Resources */,
 				43F6E352F0B614E4694715E8 /* [CP] Embed Pods Frameworks */,
+				CCF466FA22B865DA00BBE1DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -510,6 +508,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CCF466FA22B865DA00BBE1DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		E036B96C5942F66F3BE54B8D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,7 +610,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC6530AE22B4D33400D20DA1 /* hereApiTests.swift in Sources */,
 				EDA8F01C22B7F22100710DA2 /* ExtensionsTests.swift in Sources */,
 				EDA8F01A22B7EB6000710DA2 /* FavoritesManagerTests.swift in Sources */,
 				CC1EF63C22B8456300EAF3EA /* LocationDetailViewModelTests.swift in Sources */,

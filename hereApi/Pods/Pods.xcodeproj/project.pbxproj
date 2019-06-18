@@ -16,41 +16,57 @@
 			);
 			name = HEREMapsStarter;
 		};
+		C626DB0C09FC2F8E99E8C3E40BAECB31 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5606D5A1FE3B9551BA16D842B3D19263 /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		2794D9493C3A3CE144ED21D1A3D6618C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		2DCC02F52A44C20A14389A50D15E5A3B /* Pods-hereApi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5D7C170FEDBBEC57BBC7FA37F54183C /* Pods-hereApi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BA8C14A9036084ADB2B98CF593F3722 /* Pods-hereApiUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 85543D918D5B76F15A60BD260FCF3A99 /* Pods-hereApiUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5962110C70E17E53425DB71D6C354A6D /* Pods-hereApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC7868A2617D736CD75A62F065AEBC /* Pods-hereApi-dummy.m */; };
 		6B1E9FDE33CDE657074BBA88BA280AA3 /* Pods-hereApiTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34009C6687A36CF927081BA1E7C0A8F0 /* Pods-hereApiTests-dummy.m */; };
-		72E3C1EA32ACA8EDA9C13153DF27606F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		86CB6BEAA3C38E5165862BC328C72E12 /* Pods-hereApiTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6EBAD817790AD2CFE4E6638AB90747A /* Pods-hereApiTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D347A585AB05683A120A69E9B2B5E56 /* Pods-hereApiUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DD533D85182B4819440B8A17E021B0B5 /* Pods-hereApiUITests-dummy.m */; };
-		ACC95E6FB37E005228D2AEC73551A337 /* Pods-hereApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC7868A2617D736CD75A62F065AEBC /* Pods-hereApi-dummy.m */; };
 		C66D63C1EE76421559C5541343B1A29C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		D806DF8BFC4E28B5DF8E114363378EFA /* Pods-hereApi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5D7C170FEDBBEC57BBC7FA37F54183C /* Pods-hereApi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE9115868DFFA30BD84734B30E778E4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		694DC0695AF22D7380879DCB9D4797A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C626DB0C09FC2F8E99E8C3E40BAECB31;
+			remoteInfo = SwiftLint;
+		};
 		6EC0EEAE4C941AB67FE729A84DF9C48C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8411CB4AA15C0518CEB956ADD03888D7;
+			remoteGlobalIDString = 1AACE50A92D47C031FD089C5C75609FE;
 			remoteInfo = "Pods-hereApi";
 		};
-		BCA7788F87EC03CDAE62BE579403DA22 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8411CB4AA15C0518CEB956ADD03888D7;
-			remoteInfo = "Pods-hereApi";
-		};
-		D381368AAFFDBFAF1E14DA84522F33F7 /* PBXContainerItemProxy */ = {
+		AF51346FE88A43757B2611C2F448BEE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AC1B90A1EB59E46EC29EAEDEDC04EC92;
 			remoteInfo = HEREMapsStarter;
+		};
+		BCA7788F87EC03CDAE62BE579403DA22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AACE50A92D47C031FD089C5C75609FE;
+			remoteInfo = "Pods-hereApi";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -63,19 +79,20 @@
 		3319A8986F17ED8CA5F12754DAB82D2B /* Pods-hereApiTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hereApiTests-Info.plist"; sourceTree = "<group>"; };
 		34009C6687A36CF927081BA1E7C0A8F0 /* Pods-hereApiTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-hereApiTests-dummy.m"; sourceTree = "<group>"; };
 		433007EC3C08E02A2E938F0C4D082428 /* Pods-hereApiUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hereApiUITests-Info.plist"; sourceTree = "<group>"; };
-		5C960CAC12C0C9634A39E2FD4F841043 /* HEREMapsStarter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HEREMapsStarter.xcconfig; sourceTree = "<group>"; };
+		555C89579E4460D64802690A36734FA3 /* HEREMapsStarter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HEREMapsStarter.xcconfig; sourceTree = "<group>"; };
 		5D0BB9C507C8B3B8CBCFC4DC60B6FEC0 /* Pods-hereApiTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-hereApiTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		616C68A14A69954974E05B697729BBF1 /* Pods-hereApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hereApi.release.xcconfig"; sourceTree = "<group>"; };
+		659C59F8E953177A6D97CC110DC3CCFD /* SwiftLint.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.xcconfig; sourceTree = "<group>"; };
 		66C6DF4342E50F281CAD1D4EA6B6456D /* Pods-hereApiTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-hereApiTests.modulemap"; sourceTree = "<group>"; };
 		6B5F70A815208DADDC13A717DC89CCD4 /* Pods-hereApiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hereApiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		84D642B6E14D052304A9BD096A79CED7 /* Pods-hereApi-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hereApi-Info.plist"; sourceTree = "<group>"; };
 		85543D918D5B76F15A60BD260FCF3A99 /* Pods-hereApiUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-hereApiUITests-umbrella.h"; sourceTree = "<group>"; };
-		8C7F67C9792CBD6BA038580D3B15DDE1 /* NMAKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMAKit.framework; path = framework/NMAKit.framework; sourceTree = "<group>"; };
 		90283DE7E3E9D5AE99FAC0C5EDE71901 /* Pods-hereApi-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-hereApi-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A53DFAA6B9E4C28732E57BBFE8D2BBA2 /* Pods-hereApiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hereApiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A5754C63AF3B94B5F37374EA0DC23754 /* Pods-hereApiUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-hereApiUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		AD791C495BD440665B6BA74CE0F44976 /* Pods-hereApiUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-hereApiUITests.modulemap"; sourceTree = "<group>"; };
+		BB2708BEB98862F5C6BAD12964F52F4D /* NMAKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMAKit.framework; path = framework/NMAKit.framework; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CDCAD8035795225F7BB99863C2CCAC6A /* Pods_hereApiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_hereApiUITests.framework; path = "Pods-hereApiUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2322479D3C9F8A655A6191F614070E4 /* Pods-hereApiTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hereApiTests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -98,14 +115,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7738A8D506DDDDE46105B0559758FFE5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				72E3C1EA32ACA8EDA9C13153DF27606F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C71936B1BE180CE280DF9CB50C0F6429 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -114,15 +123,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FB0C8CD3B3896C4A1A444A5FDDBE1789 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE9115868DFFA30BD84734B30E778E4F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DBB505DD3E6781C447C3C9F2047CE5B /* Pods */ = {
+		02ABC9B41767C111287E7B69F7339E00 /* SwiftLint */ = {
 			isa = PBXGroup;
 			children = (
-				BE16F6FDFE920CCB625BD482445ADB38 /* HEREMapsStarter */,
+				CFF1B5CD9F25958D28FDA805F58D1881 /* Support Files */,
+			);
+			name = SwiftLint;
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		1E09E0C20A6369CB397100C0CC70CE62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4B3841983C568451F0F19C146023060 /* HEREMapsStarter */,
+				02ABC9B41767C111287E7B69F7339E00 /* SwiftLint */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		36F509DF9158E9ED88A7CDBB27FD73E6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				555C89579E4460D64802690A36734FA3 /* HEREMapsStarter.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HEREMapsStarter";
 			sourceTree = "<group>";
 		};
 		47938B7015B10E9DC3F9DF3A20E6E21F /* Targets Support Files */ = {
@@ -133,14 +169,6 @@
 				62682B3EDDD9EB3099F980C0C9E041FA /* Pods-hereApiUITests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		4B3FE4E61CA65ED49188440998EF4E9E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8C7F67C9792CBD6BA038580D3B15DDE1 /* NMAKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		62682B3EDDD9EB3099F980C0C9E041FA /* Pods-hereApiUITests */ = {
@@ -159,13 +187,12 @@
 			path = "Target Support Files/Pods-hereApiUITests";
 			sourceTree = "<group>";
 		};
-		92E7DFFA2108536B2B990CEF1E8AAA9E /* Support Files */ = {
+		7128D0C8303FE0C42C62D6E4DBFFD85E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C960CAC12C0C9634A39E2FD4F841043 /* HEREMapsStarter.xcconfig */,
+				BB2708BEB98862F5C6BAD12964F52F4D /* NMAKit.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/HEREMapsStarter";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		98BD9495684B14F952D2B4835C6F7AA8 /* Pods-hereApi */ = {
@@ -209,25 +236,24 @@
 			path = "Target Support Files/Pods-hereApiTests";
 			sourceTree = "<group>";
 		};
-		BE16F6FDFE920CCB625BD482445ADB38 /* HEREMapsStarter */ = {
-			isa = PBXGroup;
-			children = (
-				4B3FE4E61CA65ED49188440998EF4E9E /* Frameworks */,
-				92E7DFFA2108536B2B990CEF1E8AAA9E /* Support Files */,
-			);
-			name = HEREMapsStarter;
-			path = HEREMapsStarter;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				3DBB505DD3E6781C447C3C9F2047CE5B /* Pods */,
+				1E09E0C20A6369CB397100C0CC70CE62 /* Pods */,
 				FA12235732F05D76AE02C18978229029 /* Products */,
 				47938B7015B10E9DC3F9DF3A20E6E21F /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		CFF1B5CD9F25958D28FDA805F58D1881 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				659C59F8E953177A6D97CC110DC3CCFD /* SwiftLint.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
 			sourceTree = "<group>";
 		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
@@ -236,6 +262,16 @@
 				9B055D0CFEA43187E72B03DED11F5662 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4B3841983C568451F0F19C146023060 /* HEREMapsStarter */ = {
+			isa = PBXGroup;
+			children = (
+				7128D0C8303FE0C42C62D6E4DBFFD85E /* Frameworks */,
+				36F509DF9158E9ED88A7CDBB27FD73E6 /* Support Files */,
+			);
+			name = HEREMapsStarter;
+			path = HEREMapsStarter;
 			sourceTree = "<group>";
 		};
 		FA12235732F05D76AE02C18978229029 /* Products */ = {
@@ -251,11 +287,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3C8C45D146B8142F9BD3693DC1EC1ACC /* Headers */ = {
+		1EDECBD52FCFC5BFA8D2094600DF6670 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D806DF8BFC4E28B5DF8E114363378EFA /* Pods-hereApi-umbrella.h in Headers */,
+				2DCC02F52A44C20A14389A50D15E5A3B /* Pods-hereApi-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +314,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1AACE50A92D47C031FD089C5C75609FE /* Pods-hereApi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FB809854239420DC4C09E780974BF1A /* Build configuration list for PBXNativeTarget "Pods-hereApi" */;
+			buildPhases = (
+				1EDECBD52FCFC5BFA8D2094600DF6670 /* Headers */,
+				BA07821DBA8FF1EFDE40D5BC2AB6B0F8 /* Sources */,
+				FB0C8CD3B3896C4A1A444A5FDDBE1789 /* Frameworks */,
+				69AEAA3B6D01C943A114020D89DA6A56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4B934EBA55A1A5B212C44AA722A30A7 /* PBXTargetDependency */,
+				476633C300C676FB672A2EC4A8C495AD /* PBXTargetDependency */,
+			);
+			name = "Pods-hereApi";
+			productName = "Pods-hereApi";
+			productReference = 191219D018EB1E8E2FB46728C6D7DDAF /* Pods_hereApi.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		34AA6C2A1CE462AF38E0EA25EC4501E3 /* Pods-hereApiUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4D95EDCB51D526B43D879D729597586 /* Build configuration list for PBXNativeTarget "Pods-hereApiUITests" */;
@@ -295,25 +351,6 @@
 			name = "Pods-hereApiUITests";
 			productName = "Pods-hereApiUITests";
 			productReference = CDCAD8035795225F7BB99863C2CCAC6A /* Pods_hereApiUITests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		8411CB4AA15C0518CEB956ADD03888D7 /* Pods-hereApi */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 76E0A49549741C68FBFF32714D1F4508 /* Build configuration list for PBXNativeTarget "Pods-hereApi" */;
-			buildPhases = (
-				3C8C45D146B8142F9BD3693DC1EC1ACC /* Headers */,
-				5A4DA104BEAF00253CB55313E913765D /* Sources */,
-				7738A8D506DDDDE46105B0559758FFE5 /* Frameworks */,
-				BA2BE607602076B648DE7B46AB162D08 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AF05643D3A0318FD83C33D4F8391D6D6 /* PBXTargetDependency */,
-			);
-			name = "Pods-hereApi";
-			productName = "Pods-hereApi";
-			productReference = 191219D018EB1E8E2FB46728C6D7DDAF /* Pods_hereApi.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A730E9139C4D5F80BCABE443316D4E54 /* Pods-hereApiTests */ = {
@@ -357,15 +394,16 @@
 			projectRoot = "";
 			targets = (
 				AC1B90A1EB59E46EC29EAEDEDC04EC92 /* HEREMapsStarter */,
-				8411CB4AA15C0518CEB956ADD03888D7 /* Pods-hereApi */,
+				1AACE50A92D47C031FD089C5C75609FE /* Pods-hereApi */,
 				A730E9139C4D5F80BCABE443316D4E54 /* Pods-hereApiTests */,
 				34AA6C2A1CE462AF38E0EA25EC4501E3 /* Pods-hereApiUITests */,
+				C626DB0C09FC2F8E99E8C3E40BAECB31 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BA2BE607602076B648DE7B46AB162D08 /* Resources */ = {
+		69AEAA3B6D01C943A114020D89DA6A56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -397,11 +435,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5A4DA104BEAF00253CB55313E913765D /* Sources */ = {
+		BA07821DBA8FF1EFDE40D5BC2AB6B0F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACC95E6FB37E005228D2AEC73551A337 /* Pods-hereApi-dummy.m in Sources */,
+				5962110C70E17E53425DB71D6C354A6D /* Pods-hereApi-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,23 +454,29 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		476633C300C676FB672A2EC4A8C495AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = C626DB0C09FC2F8E99E8C3E40BAECB31 /* SwiftLint */;
+			targetProxy = 694DC0695AF22D7380879DCB9D4797A0 /* PBXContainerItemProxy */;
+		};
 		79A26E66628697F707D73D0F3ED359C6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-hereApi";
-			target = 8411CB4AA15C0518CEB956ADD03888D7 /* Pods-hereApi */;
+			target = 1AACE50A92D47C031FD089C5C75609FE /* Pods-hereApi */;
 			targetProxy = 6EC0EEAE4C941AB67FE729A84DF9C48C /* PBXContainerItemProxy */;
 		};
 		8F89611DCA2FBEEF11A88069F12617D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-hereApi";
-			target = 8411CB4AA15C0518CEB956ADD03888D7 /* Pods-hereApi */;
+			target = 1AACE50A92D47C031FD089C5C75609FE /* Pods-hereApi */;
 			targetProxy = BCA7788F87EC03CDAE62BE579403DA22 /* PBXContainerItemProxy */;
 		};
-		AF05643D3A0318FD83C33D4F8391D6D6 /* PBXTargetDependency */ = {
+		D4B934EBA55A1A5B212C44AA722A30A7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HEREMapsStarter;
 			target = AC1B90A1EB59E46EC29EAEDEDC04EC92 /* HEREMapsStarter */;
-			targetProxy = D381368AAFFDBFAF1E14DA84522F33F7 /* PBXContainerItemProxy */;
+			targetProxy = AF51346FE88A43757B2611C2F448BEE9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -475,9 +519,25 @@
 			};
 			name = Debug;
 		};
+		6A919C43AE4F22B7C643D9F5CF626F90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 659C59F8E953177A6D97CC110DC3CCFD /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		731FA167CA9A373709502B1148967E32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C960CAC12C0C9634A39E2FD4F841043 /* HEREMapsStarter.xcconfig */;
+			baseConfigurationReference = 555C89579E4460D64802690A36734FA3 /* HEREMapsStarter.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -491,44 +551,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		9587B4C81816E26544B80D7EC7D2BDCB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6E28945BDE91024C5A3E9ABA50715B1 /* Pods-hereApi.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-hereApi/Pods-hereApi-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-hereApi/Pods-hereApi.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		A105C1752A0A49B30ED621B71E226CDB /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -590,9 +612,9 @@
 			};
 			name = Release;
 		};
-		A7D99B82B5C78AFB845F33C1401A12FD /* Release */ = {
+		AFAF9F886575FDE2DA28028972B1E4DA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 616C68A14A69954974E05B697729BBF1 /* Pods-hereApi.release.xcconfig */;
+			baseConfigurationReference = E6E28945BDE91024C5A3E9ABA50715B1 /* Pods-hereApi.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -623,9 +645,25 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B03E48B5F3B0A64DB604B7A189A8E390 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 659C59F8E953177A6D97CC110DC3CCFD /* SwiftLint.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -695,7 +733,7 @@
 		};
 		E13588DA3CB92528015C671EB2201414 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C960CAC12C0C9634A39E2FD4F841043 /* HEREMapsStarter.xcconfig */;
+			baseConfigurationReference = 555C89579E4460D64802690A36734FA3 /* HEREMapsStarter.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -708,6 +746,45 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		E1C27D237164912A6F720EE96DBC1CFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 616C68A14A69954974E05B697729BBF1 /* Pods-hereApi.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-hereApi/Pods-hereApi-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-hereApi/Pods-hereApi.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		E4F119E051F353727390D3A23B368836 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -846,11 +923,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		76E0A49549741C68FBFF32714D1F4508 /* Build configuration list for PBXNativeTarget "Pods-hereApi" */ = {
+		5606D5A1FE3B9551BA16D842B3D19263 /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9587B4C81816E26544B80D7EC7D2BDCB /* Debug */,
-				A7D99B82B5C78AFB845F33C1401A12FD /* Release */,
+				6A919C43AE4F22B7C643D9F5CF626F90 /* Debug */,
+				B03E48B5F3B0A64DB604B7A189A8E390 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FB809854239420DC4C09E780974BF1A /* Build configuration list for PBXNativeTarget "Pods-hereApi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFAF9F886575FDE2DA28028972B1E4DA /* Debug */,
+				E1C27D237164912A6F720EE96DBC1CFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

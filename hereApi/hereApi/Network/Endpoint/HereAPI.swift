@@ -19,18 +19,17 @@ extension HereAPI: EndpointType {
             return url
         }
     }
-    
     var path: String {
         switch self {
         case .directUrl:
             return ""
         }
     }
-    
+
     var httpMethod: HTTPMethod {
         return .get
     }
-    
+
     var task: HTTPTask {
         return .request
     }

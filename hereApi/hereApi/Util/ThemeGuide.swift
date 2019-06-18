@@ -9,11 +9,11 @@
 import UIKit
 
 struct Spacing {
-    static let XS: CGFloat = 3.0
-    static let S: CGFloat = 5.0
-    static let M: CGFloat = 10.0
-    static let L: CGFloat = 25.0
-    static let XL: CGFloat = 50.0
+    static let xSmall: CGFloat = 3.0
+    static let small: CGFloat = 5.0
+    static let medium: CGFloat = 10.0
+    static let large: CGFloat = 25.0
+    static let xLarge: CGFloat = 50.0
 }
 
 struct Colors {
@@ -23,7 +23,7 @@ struct Colors {
 }
 
 struct FontSize {
-    static let S: CGFloat = 16.0
+    static let small: CGFloat = 16.0
 }
 
 struct Images {

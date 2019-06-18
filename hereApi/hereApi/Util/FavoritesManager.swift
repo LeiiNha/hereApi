@@ -22,7 +22,7 @@ struct FavoritesManager: FavoritesManagerProtocol {
         static let maximumFavorites = 10
         static let favoritesKey = "SavedFavorites"
     }
-    
+
     func loadFavorites() -> [Location]? {
         if let savedFavorites = UserDefaults.standard.object(forKey: Constants.favoritesKey) as? Data {
             if let loadedFavorites = try? JSONDecoder().decode([Location].self, from: savedFavorites) {
