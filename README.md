@@ -1,4 +1,4 @@
-# hereApi
+# Here API Sample
 
 
 Hello, the idea of this code was to create a sample app using the HERE Starter SDK.
